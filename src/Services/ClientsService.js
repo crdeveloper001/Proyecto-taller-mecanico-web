@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_URL,Clients } from '../utils/Endpoints';
+import { API_URL,Clients } from '../Utils/Endpoints';
 
 export const GetAllClients = async()=>{
     const dataCLients = []

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, Container, Form, Button } from 'react-bootstrap';
-import { Authorization } from '../../hooks/Authentication';
-import { GetAllClients } from '../../hooks/Clients';
+import { Authorization } from '../../Hooks/Authentication';
+import { GetAllClients } from '../../Hooks/Clients';
 import "./Login.css";
 
 export const Login = () => {
