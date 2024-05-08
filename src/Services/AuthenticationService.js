@@ -16,7 +16,10 @@ export const Authorization = async (credentials) => {
                 "Content-Type": "application/json",
             },
             url: API_URL + Authentication,
-            data: credentials,
+            data:{
+                email:credentials.email,
+                password:credentials.password
+            }
            
         });
 
