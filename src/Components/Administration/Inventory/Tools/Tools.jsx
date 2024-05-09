@@ -1,10 +1,10 @@
 import React from 'react'
 import { Navigation } from '../../../../Routes/Navigation/Navigation'
 
-export const Providers = () => {
+export const Tools = () => {
   return (
     <div>
-      <Navigation/>
+        <Navigation/>
     </div>
   )
 }
