@@ -1,4 +1,7 @@
-.LoginContainer{
+/* .LoginContainer{
     margin-top: 200px;
     max-width: 600px ;
+} */
+.descriptionAppText{
+    text-align: justify;
 }

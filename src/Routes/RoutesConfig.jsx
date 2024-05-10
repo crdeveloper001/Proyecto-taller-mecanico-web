@@ -17,6 +17,7 @@ import { Inventory } from "../Components/Administration/Inventory/Inventory";
 import { PendingJobs } from "../Components/Workshop/PendingJobs/PendingJobs";
 import { Quotes } from "../Components/Workshop/Quotes/Quotes";
 import { NewQuote } from "../Components/Workshop/Quotes/NewQuote/NewQuote";
+import { NotFoundPage } from "../Components/NotFoundPage/NotFoundPage";
 
 export const RoutesConfig = () => {
   return (
@@ -24,10 +25,10 @@ export const RoutesConfig = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         {/* Rutas protegidas */}
-        <PrivateRoute path="/Dashboard-App" element={<Dashboard />} isLoggedIn={true} />
-        <PrivateRoute path="/profile" element={<Profile />} isLoggedIn={true} />
-        <PrivateRoute path="/clients" element={<Clients />} isLoggedIn={true} />
-        <PrivateRoute path="/add-new-client" element={<AddNewClient />}  isLoggedIn={true}/>
+        <Route path="/Dashboard-App" element={<Dashboard />} errorElement= <NotFoundPage/>  />
+        <Route path="/profile" element={<Profile />}  />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/add-new-client" element={<AddNewClient />}  />
         {/* Agrega más rutas protegidas aquí según sea necesario */}
         <Route path="/replacements" element={<Replacements />} />
         <Route path="/providers" element={<Providers />} />

@@ -1,7 +1,10 @@
 import React from 'react'
+import { Navigation } from '../../../../Routes/Navigation/Navigation'
 
 export const CreateNewDiagnotic = () => {
   return (
-    <div>CreateNewDiagnotic</div>
+    <div>
+      <Navigation/>
+    </div>
   )
 }
