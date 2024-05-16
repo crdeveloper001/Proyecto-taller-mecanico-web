@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { PrivateRoute } from "../Routes/RoutesProtection/PrivateRoute";
-import { Login } from "../Components/Login/Login";
+import { Login } from "../Components/login/Login";
 import { Dashboard } from "../Components/Dashboard/Dashboard";
 import { Clients } from "../Components/Administration/Clients/Clients";
 import { Replacements } from "../Components/Administration/Inventory/Replacements/Replacements";
@@ -20,16 +19,18 @@ import { NewQuote } from "../Components/Workshop/Quotes/NewQuote/NewQuote";
 import { NotFoundPage } from "../Components/NotFoundPage/NotFoundPage";
 
 export const RoutesConfig = () => {
+
+  const isLoggedIn = true;
+
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        {/* Rutas protegidas */}
-        <Route path="/Dashboard-App" element={<Dashboard />} errorElement= <NotFoundPage/>  />
-        <Route path="/profile" element={<Profile />}  />
+        <Route path="/Dashboard-App" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/clients" element={<Clients />} />
-        <Route path="/add-new-client" element={<AddNewClient />}  />
-        {/* Agrega más rutas protegidas aquí según sea necesario */}
+        <Route path="/add-new-client" element={<AddNewClient />} />
         <Route path="/replacements" element={<Replacements />} />
         <Route path="/providers" element={<Providers />} />
         <Route path="/tools" element={<Tools />} />

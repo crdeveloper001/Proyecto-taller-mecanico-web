@@ -1,7 +1,31 @@
-/* .LoginContainer{
-    margin-top: 200px;
-    max-width: 600px ;
-} */
-.descriptionAppText{
+.container {
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    color: black;
+}
+
+p {
+    line-height: 1.5;
     text-align: justify;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
 }
