@@ -26,7 +26,7 @@ export const Login = () => {
       <Card className="d-flex mx-auto ">
         <Row>
           <Col sm={3}>
-            <Container>
+            <Container id="login-card-container">
               <form>
                 <Form.Group controlId="InputUsername">
                   <Form.Label>CORREO ELECTRONICO</Form.Label>
