@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Login } from "../Components/login/Login";
+import { Login } from "../Components/Login/Login";
 import { Dashboard } from "../Components/Dashboard/Dashboard";
 import { Clients } from "../Components/Administration/Clients/Clients";
 import { Replacements } from "../Components/Administration/Inventory/Replacements/Replacements";
@@ -30,6 +30,7 @@ export const RoutesConfig = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/clients" element={<Clients />} />
+      
         <Route path="/add-new-client" element={<AddNewClient />} />
         <Route path="/replacements" element={<Replacements />} />
         <Route path="/providers" element={<Providers />} />
