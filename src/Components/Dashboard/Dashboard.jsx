@@ -52,6 +52,18 @@ export const Dashboard = () => {
                   </Card.Body>
                 </Card>
               </Col>
+              <Col md={6} lg={4}>
+                <Card>
+                  <Card.Header className="text-center">Vehicles</Card.Header>
+                  <Card.Body className="d-flex flex-column align-items-center">
+                    <Button variant="primary" className="mt-auto" onClick={() =>{
+                      appNavigation("quotes")
+                    }}>
+                    Join
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
             </Row>
           </Card.Body>
         </Card>

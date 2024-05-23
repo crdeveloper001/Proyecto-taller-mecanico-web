@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Container, Form, Button, Row, Col, Image } from "react-bootstrap";
 import { Authorization } from "../../Services/AuthenticationService";
-import useLoginAuth from "../../Hooks/useLoginAuth";
+import useAuthentication from "../../Hooks/useAuthentication";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import workshopImage from '../../assets/CurrentImages/Workshop.jpg'
@@ -15,7 +15,7 @@ export const Login = () => {
     saveEmailInfo,
     savePasswordInfo,
     AuthorizationFlow,
-  } = useLoginAuth();
+  } = useAuthentication();
 
   useEffect(() => {
     localStorage.clear();
@@ -58,7 +58,7 @@ export const Login = () => {
 
                     switch (sessionPayload.auth_key) {
                       case "USER_AUTHORIZED":
-                        appNavigation("Dashboard-App");
+                        appNavigation("dashboard");
                         break;
 
                       default:

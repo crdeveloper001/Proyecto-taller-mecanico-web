@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Navigation } from "../../../Routes/Navigation/Navigation";
-import { Container, Card, Button, Col, Row, Form, Alert } from "react-bootstrap";
+import { Container, Card, Button, Col, Row, Form, Alert, Modal } from "react-bootstrap";
 import useProfileSettings from "../../../Hooks/useProfileSettings";
+import { ReportProblem } from "./ReportProblem/ReportProblem";
 
 export const Profile = () => {
   const { profileInformation, currentPayload, enableField, activeProfileForm, getCurrentSession, saveProfileInformationByUser, createUpdateToProfile } = useProfileSettings()
-  //load payload from localstorage:
   getCurrentSession();
-
   const [showAlertToUser, setTurnOnOffAlert] = useState(false)
+  const [profileSaved, setProfileSaved] = useState(false);
+
+  //handle the report modal
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
   return (
 
     <div>
       <Navigation />
-
-      <form>
-
-      </form>
       <Container>
 
         <form action="" method="post">
@@ -25,9 +26,7 @@ export const Profile = () => {
             <Card.Header>Perfil</Card.Header>
             <Card.Body>
               <Card.Text>
-                {/* {showAlertToUser ? <Alert variant="success" onClose={() => setTurnOnOffAlert(false)} dismissible>
-                  EDITION PROFILE
-                </Alert> : ""} */}
+               
 
                 <Row md={6}>
                   <Col>
@@ -39,6 +38,7 @@ export const Profile = () => {
                           <Button className="mt-1" variant="warning" size="sm" onClick={() => {
                             activeProfileForm()
                             setTurnOnOffAlert(true)
+                            setProfileSaved(false);
                           }}>
                             Editar Perfil
                           </Button>
@@ -49,7 +49,9 @@ export const Profile = () => {
                             Eliminar cuenta
                           </Button>
                           <hr />
-                          <Button className="mt-1" variant="info" size="sm" onClick={() => console.log("Reportar Problema")}>
+                          
+                          <ReportProblem show={showModal} onClose={handleCloseModal} />
+                          <Button className="mt-1" variant="info" size="sm"  onClick={handleShowModal}>
                             Reportar Problema
                           </Button>
                         </Card.Text>
@@ -99,15 +101,40 @@ export const Profile = () => {
                       }} />
                     </Form.Group>
                     {!enableField ? (
-                      <><hr /><Button variant="success" size="sm" onClick={createUpdateToProfile}>
+                      <><hr /><Button variant="success" size="sm" onClick={() => {
+                        createUpdateToProfile().then(result => {
+                          switch (result) {
+                            case 201:
+                              setProfileSaved(true);
+                              activeProfileForm()
+                              break;
+
+                          }
+                        }).catch(error => {
+
+                          switch (error.code) {
+                            case "ERR_NETWORK":
+                              alert("me cague en el server");
+
+                          }
+                        })
+                      }}>
                         Save Profile
                       </Button></>
                     ) : ""}
 
 
                   </Col>
+
                 </Row>
+
+                {profileSaved ? <Alert variant="success" dismissible >
+                  PROFILE SAVED!!
+                </Alert> : ""}
+
               </Card.Text>
+
+
             </Card.Body>
           </Card>
 

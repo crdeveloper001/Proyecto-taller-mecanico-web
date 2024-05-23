@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Authorization } from "../Services/AuthenticationService";
 import { useNavigate } from "react-router-dom";
 
-const useLoginAuth = () => {
+const useAuthentication = () => {
   const [currentCredentials, setCurrentCredentials] = useState({
     email: "",
     password: "",
@@ -57,4 +57,4 @@ const useLoginAuth = () => {
   };
 };
 
-export default useLoginAuth;
+export default useAuthentication;

@@ -39,7 +39,7 @@ export const addUser = async (newUser) => {
 export const updateUser = async (updatedUser) => {
     try {
         const response = await axios.put(`${API_URL}${Users}`, updatedUser);
-        return response.data;
+        return response.status;
     } catch (error) {
         console.error('Error updating user:', error);
         throw error;
