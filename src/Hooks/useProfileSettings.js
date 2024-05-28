@@ -21,8 +21,7 @@ const useProfileSettings = () => {
     const getCurrentSession = () => {
         useEffect(() => {
             const profileFromLocalStore = JSON.parse(localStorage.getItem("sessionPayloadInfo"));
-            setProfileInformation(profileFromLocalStore.payload);
-
+            setProfileInformation(profileFromLocalStore.Payload);
             console.log(profileFromLocalStore);
         }, [])
     }
@@ -32,31 +31,31 @@ const useProfileSettings = () => {
             case "InputName":
                 setProfileInformation((prevState) => ({
                     ...prevState,
-                    Nombre: e.target.value,
+                    Name: e.target.value,
                 }));
                 break;
             case "InputLastName":
                 setProfileInformation((prevState) => ({
                     ...prevState,
-                    Apellidos: e.target.value,
+                    Surname: e.target.value,
                 }));
                 break;
             case "InputEmail":
                 setProfileInformation((prevState) => ({
                     ...prevState,
-                    CorreoElectronico: e.target.value,
+                    CurrentEmail: e.target.value,
                 }));
                 break;
             case "InputPhone":
                 setProfileInformation((prevState) => ({
                     ...prevState,
-                    Telefono: e.target.value,
+                    Phone: e.target.value,
                 }));
                 break;
             case "InputPassword":
                 setProfileInformation((prevState) => ({
                     ...prevState,
-                    ClaveAcceso: e.target.value,
+                    CurrentPassword: e.target.value,
                 }));
                 break;
 

@@ -11,8 +11,8 @@ export const Authorization = async (credentials) => {
             },
             url: API_URL + Authentication,
             data:{
-                email:credentials.email,
-                password:credentials.password
+                Email:credentials.Email,
+                Password:credentials.Password
             }
            
         });

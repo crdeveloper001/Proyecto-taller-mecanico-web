@@ -23,7 +23,7 @@ export const Profile = () => {
 
         <form action="" method="post">
           <Card className="mt-4">
-            <Card.Header>Perfil</Card.Header>
+            <Card.Header>Profile</Card.Header>
             <Card.Body>
               <Card.Text>
                
@@ -31,7 +31,7 @@ export const Profile = () => {
                 <Row md={6}>
                   <Col>
                     <Card>
-                      <Card.Header>Opciones</Card.Header>
+                      <Card.Header>Options</Card.Header>
                       <Card.Body>
                         <Card.Text>
 
@@ -40,19 +40,19 @@ export const Profile = () => {
                             setTurnOnOffAlert(true)
                             setProfileSaved(false);
                           }}>
-                            Editar Perfil
+                            Edit Profile
                           </Button>
 
 
                           <hr />
                           <Button className="mt-1" variant="danger" size="sm" onClick={() => console.log("Eliminar Perfil")}>
-                            Eliminar cuenta
+                            Delete Account
                           </Button>
                           <hr />
                           
                           <ReportProblem show={showModal} onClose={handleCloseModal} />
                           <Button className="mt-1" variant="info" size="sm"  onClick={handleShowModal}>
-                            Reportar Problema
+                            Report Problem
                           </Button>
                         </Card.Text>
                       </Card.Body>
@@ -61,41 +61,41 @@ export const Profile = () => {
                   <Col md={5}>
 
                     <Form.Group controlId="InputName">
-                      <Form.Label>Nombre</Form.Label>
-                      <Form.Control type="text" disabled={enableField} value={profileInformation.Nombre} onChange={(e) => {
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control type="text" disabled={enableField} value={profileInformation.Name} onChange={(e) => {
                         saveProfileInformationByUser(e)
                       }} />
                     </Form.Group>
                     <Form.Group controlId="InputLastName">
-                      <Form.Label>Apellidos</Form.Label>
-                      <Form.Control type="text" disabled={enableField} value={profileInformation.Apellidos} onChange={(e) => {
+                      <Form.Label>Surname</Form.Label>
+                      <Form.Control type="text" disabled={enableField} value={profileInformation.Surname} onChange={(e) => {
                         saveProfileInformationByUser(e)
                       }} />
                     </Form.Group>
                     <Form.Group controlId="InputEmail">
-                      <Form.Label>Correo Electronico</Form.Label>
-                      <Form.Control type="email" disabled={enableField} value={profileInformation.CorreoElectronico} onChange={(e) => {
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control type="email" disabled={enableField} value={profileInformation.CurrentEmail} onChange={(e) => {
                         saveProfileInformationByUser(e)
                       }} />
                     </Form.Group>
                     <Form.Group controlId="InputPhone">
-                      <Form.Label>Telefono</Form.Label>
-                      <Form.Control type="tel" disabled={enableField} value={profileInformation.Telefono} onChange={(e) => {
+                      <Form.Label>Phone</Form.Label>
+                      <Form.Control type="tel" disabled={enableField} value={profileInformation.Phone} onChange={(e) => {
                         saveProfileInformationByUser(e)
                       }} />
                     </Form.Group>
                   </Col>
                   <Col md={5}>
                     <Form.Group controlId="InputCurrentJob">
-                      <Form.Label>Cargo Actual</Form.Label>
-                      <Form.Control type="text" value={profileInformation.CargoActual} disabled />
+                      <Form.Label>Current Position</Form.Label>
+                      <Form.Control type="text" value={profileInformation.CurrentPosition} disabled />
                     </Form.Group>
                     <Form.Group controlId="InputRol">
-                      <Form.Label>Rol</Form.Label>
-                      <Form.Control type="text" value={profileInformation.Rol} disabled />
+                      <Form.Label>Role</Form.Label>
+                      <Form.Control type="text" value={profileInformation.Role} disabled />
                     </Form.Group>
                     <Form.Group controlId="InputPassword">
-                      <Form.Label>Contraseña</Form.Label>
+                      <Form.Label>Password</Form.Label>
                       <Form.Control type="password" disabled={enableField} autoComplete="true" onChange={(e) => {
                         saveProfileInformationByUser(e)
                       }} />

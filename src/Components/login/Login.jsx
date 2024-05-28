@@ -56,7 +56,7 @@ export const Login = () => {
                   onClick={async () => {
                     await AuthorizationFlow();
 
-                    switch (sessionPayload.auth_key) {
+                    switch (sessionPayload.Auth_key) {
                       case "USER_AUTHORIZED":
                         appNavigation("dashboard");
                         break;

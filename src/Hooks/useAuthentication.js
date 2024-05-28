@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const useAuthentication = () => {
   const [currentCredentials, setCurrentCredentials] = useState({
-    email: "",
-    password: "",
+    Email: "",
+    Password: "",
   });
   const [sessionPayload, setSessionPayload] = useState({});
 
@@ -13,7 +13,7 @@ const useAuthentication = () => {
     setSessionPayload({});
     setCurrentCredentials((prevState) => ({
       ...prevState,
-      email: e.target.value,
+      Email: e.target.value,
     }));
   };
 
@@ -21,7 +21,7 @@ const useAuthentication = () => {
     setSessionPayload({});
     setCurrentCredentials((prevState) => ({
       ...prevState,
-      password: e.target.value,
+      Password: e.target.value,
     }));
   };
 
