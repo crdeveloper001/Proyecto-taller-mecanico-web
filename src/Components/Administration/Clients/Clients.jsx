@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navigation } from '../../../Routes/Navigation/Navigation'
 import { Container, Table, Form, Button, Col, Row } from 'react-bootstrap'
+import useClientSettings from '../../../Hooks/useClientsSettings';
+import { ClientsDetails } from './ClientsDetails/ClientsDetails';
+import { useNavigate } from 'react-router-dom';
 
 export const Clients = () => {
+  const appNavigation = useNavigate()
+  const { getCurrentClients, currentClients,selectedClient,saveClientDetailSelected } = useClientSettings();
+  getCurrentClients()
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
     <div>
       <Navigation />
@@ -21,34 +33,45 @@ export const Clients = () => {
         </form>
         <div style={{ color: 'white', border: 'lpx', borderStyle: 'solid' }}></div>
 
-        <Button variant="dark" size="sm" onClick={() => console.log("Add new customer")}>
+        <Button variant="info" size="sm" onClick={() => appNavigation("/add-new-client")}>
           Add new customer
         </Button>
 
         <br />
 
-        <Table striped bordered responsive hover>
+        <Table striped bordered responsive hover className='mt-4'>
           <thead>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
               <th>Phone Number</th>
+              <th>More Details</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>customer@gmail.com</td>
-              <td>8888855555</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>customer@gmail.com</td>
-              <td>8888855555</td>
-            </tr>
+            {currentClients.length > 0 ? (
+              currentClients.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.Name}</td>
+                  <td>{item.Surname}</td>
+                  <td>{item.Email}</td>
+                  <td>{item.Phone}</td>
+                  <td>
+                    <Button variant="info" size="sm" onClick={() => {handleShow()
+                      saveClientDetailSelected(item)
+                    }}>
+                      View more information
+                    </Button>
+                    <ClientsDetails show={show} handleClose={handleClose} userData={selectedClient} />
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="text-center">No clients available</td>
+              </tr>
+            )}
           </tbody>
         </Table>
 

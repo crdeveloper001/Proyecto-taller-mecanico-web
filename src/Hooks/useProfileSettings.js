@@ -67,11 +67,7 @@ const useProfileSettings = () => {
     };
 
     const createUpdateToProfile = () =>{
-        
-        
         return updateUser(profileInformation);
-        
-
     }
 
     

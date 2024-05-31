@@ -30,7 +30,6 @@ export const RoutesConfig = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/clients" element={<Clients />} />
-      
         <Route path="/add-new-client" element={<AddNewClient />} />
         <Route path="/replacements" element={<Replacements />} />
         <Route path="/providers" element={<Providers />} />
