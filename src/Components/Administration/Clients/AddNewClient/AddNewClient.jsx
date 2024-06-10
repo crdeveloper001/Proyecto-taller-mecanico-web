@@ -13,7 +13,7 @@ export const AddNewClient = () => {
       <Navigation />
       <Container>
         <h2>Add new client to system</h2>
-        <Form onSubmit={createNewClient} id="GeneralForm">
+        <Form id="GeneralForm">
           <Form.Group controlId="InputId">
             <Form.Label>Identification</Form.Label>
             <Form.Control
@@ -103,9 +103,7 @@ export const AddNewClient = () => {
             />
           </Form.Group>
           <hr />
-          <Button variant="primary" type="submit" className="mt-2" onClick={() =>{
-            appNavigation("/Clients")
-          }}>
+          <Button variant="primary" type="button" className="mt-2" onClick={createNewClient} >
             Save
           </Button>
         </Form>

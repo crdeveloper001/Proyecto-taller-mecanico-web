@@ -1,0 +1,92 @@
+Index: .idea/Proyecto-taller-mecanico-web.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Proyecto-taller-mecanico-web.iml b/.idea/Proyecto-taller-mecanico-web.iml
+new file mode 100644
+--- /dev/null	(date 1718031290110)
++++ b/.idea/Proyecto-taller-mecanico-web.iml	(date 1718031290110)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1718031290146)
++++ b/.idea/modules.xml	(date 1718031290146)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/Proyecto-taller-mecanico-web.iml" filepath="$PROJECT_DIR$/.idea/Proyecto-taller-mecanico-web.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1718031290148)
++++ b/.idea/vcs.xml	(date 1718031290148)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/Components/Administration/Clients/AddNewClient/AddNewClient.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\nimport { Navigation } from \"../../../../Routes/Navigation/Navigation\";\nimport { Button, Container, Form } from \"react-bootstrap\";\n\nexport const AddNewClient = () => {\n  const [formData, setFormData] = useState({\n    _id: \"\",\n    Nombre: \"\",\n    Telefono: \"\",\n    Correo: \"\",\n    Telefono: \"\",\n    Direccion: \"\",\n    Ciudad: \"\",\n    Estado: \"\",\n\n  });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData({\n      ...formData,\n      [name]: value,\n    });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log(\"Form Data:\", formData);\n    // You can add API call here to submit the form data\n  };\n  return (\n    <div>\n      <Navigation />\n      <Container>\n        <h2>Add new client to system</h2>\n       <Form onSubmit={handleSubmit}>\n  <Form.Group controlId=\"formNombre\">\n    <Form.Label>First Name</Form.Label>\n    <Form.Control\n      type=\"text\"\n      placeholder=\"Enter your first name\"\n      value={formData.nombre}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formApellidos\">\n    <Form.Label>Last Name</Form.Label>\n    <Form.Control\n      type=\"text\"\n      placeholder=\"Enter your last name\"\n      value={formData.apellidos}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formCorreo\">\n    <Form.Label>Email Address</Form.Label>\n    <Form.Control\n      type=\"email\"\n      placeholder=\"Enter your email address\"\n      value={formData.correo}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formTelefono\">\n    <Form.Label>Phone Number</Form.Label>\n    <Form.Control\n      type=\"number\"\n      placeholder=\"Enter your phone number\"\n      value={formData.telefono}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formAddress\">\n    <Form.Label>Address</Form.Label>\n    <Form.Control\n      type=\"text\"\n      placeholder=\"Enter your address\"\n      value={formData.address}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formCity\">\n    <Form.Label>City</Form.Label>\n    <Form.Control\n      type=\"text\"\n      placeholder=\"Enter your city\"\n      value={formData.city}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formState\">\n    <Form.Label>State</Form.Label>\n    <Form.Control\n      type=\"text\"\n      placeholder=\"Enter your state\"\n      value={formData.state}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Form.Group controlId=\"formZipcode\">\n    <Form.Label>Zipcode</Form.Label>\n    <Form.Control\n      type=\"number\"\n      placeholder=\"Enter your zipcode\"\n      value={formData.zipcode}\n      onChange={handleChange}\n    />\n  </Form.Group>\n\n  <Button variant=\"primary\" type=\"submit\" className=\"mt-2\">\n    Save\n  </Button>\n</Form>\n      </Container>\n    </div>\n  );\n};\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Components/Administration/Clients/AddNewClient/AddNewClient.jsx b/src/Components/Administration/Clients/AddNewClient/AddNewClient.jsx
+--- a/src/Components/Administration/Clients/AddNewClient/AddNewClient.jsx	(revision 5068567a428c9c9593823a543cc405e15ad7a66e)
++++ b/src/Components/Administration/Clients/AddNewClient/AddNewClient.jsx	(date 1718032937104)
+@@ -8,7 +8,6 @@
+     Nombre: "",
+     Telefono: "",
+     Correo: "",
+-    Telefono: "",
+     Direccion: "",
+     Ciudad: "",
+     Estado: "",
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1718031290668)
++++ b/.idea/.gitignore	(date 1718031290668)
+@@ -0,0 +1,5 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/

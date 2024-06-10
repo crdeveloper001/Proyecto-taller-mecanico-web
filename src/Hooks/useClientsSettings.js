@@ -6,7 +6,7 @@ const useClientsSettings = () => {
     const [newClient, setNewClient] = useState({});
     const [currentClients, setCurrentClients] = useState([])
     const [selectedClient,setSelectedClient] = useState({})
-    
+    const [confirmationAdded,setConfirmationAdded] = useState(false);
     const saveClientDetailSelected = (details) =>{
         setSelectedClient(details);
     }
@@ -24,9 +24,9 @@ const useClientsSettings = () => {
 
     const createNewClient = (e) => {
 
-        e.preventDefault()
         addClient(newClient).then(results => {
-            alert("CLIENTE AGREGADO");
+            setConfirmationAdded(true);
+            alert(results);
         }).catch(error => {
             alert(error)
         })
