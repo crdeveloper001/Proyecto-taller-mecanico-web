@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, Form, Button, Row, Col, Image } from "react-bootstrap";
-import { Authorization } from "../../Services/AuthenticationService";
+import { Card, Container, Form, Button, Row, Col } from "react-bootstrap";
 import useAuthentication from "../../Hooks/useAuthentication";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +8,8 @@ import Descriptions from '../../assets/utils/AppDescriptions.json';
 
 export const Login = () => {
   const appNavigation = useNavigate();
+
   const {
-    currentCredentials,
     sessionPayload,
     saveEmailInfo,
     savePasswordInfo,
@@ -27,9 +26,9 @@ export const Login = () => {
         <Row>
           <Col sm={3}>
             <Container id="login-card-container">
-              <form>
+              <Form>
                 <Form.Group controlId="InputUsername">
-                  <Form.Label>CORREO ELECTRONICO</Form.Label>
+                  <Form.Label>Correo Electronico</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="username@domain.com"
@@ -39,7 +38,7 @@ export const Login = () => {
                   />
                 </Form.Group>
                 <Form.Group controlId="InputPassword">
-                  <Form.Label>CONTRASEÑA</Form.Label>
+                  <Form.Label>Contraseña</Form.Label>
                   <Form.Control
                     type="password"
                     placeholder="Enter password"
@@ -58,7 +57,7 @@ export const Login = () => {
 
                     switch (sessionPayload.Auth_key) {
                       case "USER_AUTHORIZED":
-                        appNavigation("dashboard");
+                        appNavigation("/dashboard");
                         break;
 
                       default:
@@ -71,7 +70,7 @@ export const Login = () => {
                 </Button>
                 <hr />
                 <a href="http://" target="_blank" rel="noopener noreferrer">Necesitas una cuenta?</a>
-              </form>
+              </Form>
 
             </Container>
           </Col>

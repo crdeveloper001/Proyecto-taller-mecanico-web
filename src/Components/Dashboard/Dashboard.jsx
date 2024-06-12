@@ -2,15 +2,15 @@ import React from "react";
 import { Navigation } from "../../Routes/Navigation/Navigation";
 import { Card, Col, Row, Container,Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {SideBarMenu} from "../../Routes/SideBarMenu/SideBarMenu.jsx";
 
 export const Dashboard = () => {
 
   const appNavigation = useNavigate();
 
-
   return (
-    <div>
-      <Navigation />
+    <>
+      <Navigation/>
       <Container fluid>
         <Card className="mt-4">
           <Card.Header>Modules</Card.Header>
@@ -67,7 +67,9 @@ export const Dashboard = () => {
             </Row>
           </Card.Body>
         </Card>
+
+        
       </Container>
-    </div>
+    </>
   );
 };
