@@ -16,6 +16,7 @@ import {Inventory} from "../Components/Administration/Inventory/Inventory";
 import {PendingJobs} from "../Components/Workshop/PendingJobs/PendingJobs";
 import {Quotes} from "../Components/Workshop/Quotes/Quotes";
 import {NewQuote} from "../Components/Workshop/Quotes/NewQuote/NewQuote";
+import {PrivateRoutesProtection} from "./PrivateRoutesProtection/PrivateRoutesProtection.jsx";
 
 export const RoutesConfig = () => {
 
@@ -24,22 +25,25 @@ export const RoutesConfig = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login/>}/>
-                <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="/clients" element={<Clients/>}/>
-                <Route path="/add-new-client" element={<AddNewClient/>}/>
-                <Route path="/replacements" element={<Replacements/>}/>
-                <Route path="/providers" element={<Providers/>}/>
-                <Route path="/tools" element={<Tools/>}/>
-                <Route path="/inventory-dashboard" element={<Inventory/>}/>
-                <Route path="/workshop-dashboard" element={<Workshop/>}/>
-                <Route path="/diagnostics" element={<Diagnotics/>}/>
-                <Route path="/create-new-diagnostic" element={<CreateNewDiagnotic/>}/>
-                <Route path="/diagnostic-details" element={<DiagnosticDetails/>}/>
-                <Route path="/pending-jobs" element={<PendingJobs/>}/>
-                <Route path="/quotes" element={<Quotes/>}/>
-                <Route path="/new-quote" element={<NewQuote/>}/>
+                <Route element={<PrivateRoutesProtection/>}>
+
+                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/clients" element={<Clients/>}/>
+                    <Route path="/add-new-client" element={<AddNewClient/>}/>
+                    <Route path="/replacements" element={<Replacements/>}/>
+                    <Route path="/providers" element={<Providers/>}/>
+                    <Route path="/tools" element={<Tools/>}/>
+                    <Route path="/inventory-dashboard" element={<Inventory/>}/>
+                    <Route path="/workshop-dashboard" element={<Workshop/>}/>
+                    <Route path="/diagnostics" element={<Diagnotics/>}/>
+                    <Route path="/create-new-diagnostic" element={<CreateNewDiagnotic/>}/>
+                    <Route path="/diagnostic-details" element={<DiagnosticDetails/>}/>
+                    <Route path="/pending-jobs" element={<PendingJobs/>}/>
+                    <Route path="/quotes" element={<Quotes/>}/>
+                    <Route path="/new-quote" element={<NewQuote/>}/>
+                </Route>
+                    <Route path="/" element={<Login/>}/>
             </Routes>
         </BrowserRouter>
     );
