@@ -46,7 +46,7 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                 <Accordion.Body>
                                     <Nav className="flex-column">
                                         <Nav.Link href="add-new-client">Create New Client</Nav.Link>
-                                        <Nav.Link href="Clients">View Current Clients</Nav.Link>
+                                        <Nav.Link href="clients">View Current Clients</Nav.Link>
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>

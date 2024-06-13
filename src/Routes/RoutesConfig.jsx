@@ -21,7 +21,6 @@ export const RoutesConfig = () => {
 
     //const isLoggedIn = true;
 
-
     return (
         <BrowserRouter>
             <Routes>
