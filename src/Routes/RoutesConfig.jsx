@@ -16,12 +16,10 @@ import {Inventory} from "../Components/Administration/Inventory/Inventory";
 import {PendingJobs} from "../Components/Workshop/PendingJobs/PendingJobs";
 import {Quotes} from "../Components/Workshop/Quotes/Quotes";
 import {NewQuote} from "../Components/Workshop/Quotes/NewQuote/NewQuote";
-import {NotFoundPage} from "../Components/NotFoundPage/NotFoundPage";
-import App from "../App.jsx";
 
 export const RoutesConfig = () => {
 
-    const isLoggedIn = true;
+    //const isLoggedIn = true;
 
 
     return (

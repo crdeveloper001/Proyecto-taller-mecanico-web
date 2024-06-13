@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Offcanvas, Button, Nav, NavDropdown, Container, Accordion } from 'react-bootstrap';
-import { Navigation } from '../Navigation/Navigation';
+import { Offcanvas, Button, Nav, Accordion } from 'react-bootstrap';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,6 @@ export const SideBarMenu = ({ openSideMenu }) => {
     const appNavigator = useNavigate()
     const [show, setShow] = useState(openSideMenu);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     return (
         <>
