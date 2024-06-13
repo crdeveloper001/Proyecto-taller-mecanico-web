@@ -2,7 +2,11 @@ import React from "react";
 import { Navigation } from "../../Routes/Navigation/Navigation";
 import { Card, Col, Row, Container,Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+<<<<<<< Updated upstream
 import {SideBarMenu} from "../../Routes/SideBarMenu/SideBarMenu.jsx";
+=======
+import {SideMenuTest} from "../../Routes/SideMenuTest/SideMenuTest.jsx";
+>>>>>>> Stashed changes
 
 export const Dashboard = () => {
 

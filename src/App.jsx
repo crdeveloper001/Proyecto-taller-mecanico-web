@@ -7,7 +7,11 @@ function App() {
 
   return (
    <>
+<<<<<<< Updated upstream
        <Login />
+=======
+
+>>>>>>> Stashed changes
    </>
   )
 }
