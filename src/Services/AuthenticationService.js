@@ -17,7 +17,7 @@ export const Authorization = async (credentials) => {
            
         });
 
-        return request.data;
+        return request;
 
     }
 }

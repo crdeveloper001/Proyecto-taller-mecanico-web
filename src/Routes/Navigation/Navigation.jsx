@@ -10,6 +10,8 @@ export const Navigation = () => {
     useEffect(() => {
         console.log(profileInformation)
     }, [profileInformation]);
+
+
     return (
         <>
             <Navbar bg="light" expand="lg">

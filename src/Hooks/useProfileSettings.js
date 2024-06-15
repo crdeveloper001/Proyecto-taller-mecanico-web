@@ -20,7 +20,9 @@ const useProfileSettings = () => {
 
     const getCurrentSession = () => {
         useEffect(() => {
-            const profileFromLocalStore = JSON.parse(localStorage.getItem("sessionPayloadInfo"));
+            debugger
+            const profileFromLocalStore = sessionStorage.getItem("sessionPayloadInfo");
+
             setProfileInformation(profileFromLocalStore.Payload);
             console.log(profileFromLocalStore);
         }, [])
