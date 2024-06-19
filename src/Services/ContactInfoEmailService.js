@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_URL, ContactsEmail } from '../Utils/Endpoints';
+import {API_URL, ContactsEmail} from '../Utils/Endpoints';
 
 
 export const getHistoryEmails = async () => {

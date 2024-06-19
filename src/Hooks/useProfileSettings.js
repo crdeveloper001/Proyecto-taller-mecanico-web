@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import {updateUser} from '../Services/ProfileServices';
 
 const useProfileSettings = () => {
     const [profileInformation, setProfileInformation] = useState({});
-    const [currentPayload, setCurrentPayload] = useState({});
-    const [enableField,setEnabledField] = useState(true);
-
-    const activeProfileForm = () =>{
+    const [currentSession, setCurrentSession] = useState(JSON.parse(sessionStorage.getItem("sessionPayloadInfo")));
+    const [enableField, setEnabledField] = useState(true);
+    const activeProfileForm = () => {
         switch (enableField) {
             case true:
                 setEnabledField(false)
@@ -18,15 +17,6 @@ const useProfileSettings = () => {
         }
     }
 
-    const getCurrentSession = () => {
-        useEffect(() => {
-            debugger
-            const profileFromLocalStore = sessionStorage.getItem("sessionPayloadInfo");
-
-            setProfileInformation(profileFromLocalStore.Payload);
-            console.log(profileFromLocalStore);
-        }, [])
-    }
     /**UPDATE THE VALUE OF THE STATE ACCORDING TO THE INPUT WHERE USER IS ENTERING INFORMATION */
     const saveProfileInformationByUser = (e) => {
         switch (e.target.id) {
@@ -68,18 +58,16 @@ const useProfileSettings = () => {
 
     };
 
-    const createUpdateToProfile = () =>{
+    const createUpdateToProfile = () => {
         return updateUser(profileInformation);
     }
 
-    
 
     return {
         profileInformation,
-        currentPayload,
+        currentSession,
         enableField,
         activeProfileForm,
-        getCurrentSession,
         createUpdateToProfile,
         saveProfileInformationByUser
     }

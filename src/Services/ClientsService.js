@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_URL, Clients } from '../Utils/Endpoints';
+import {API_URL, Clients} from '../Utils/Endpoints';
 
 // Function to fetch all clients
 export const getClients = async () => {

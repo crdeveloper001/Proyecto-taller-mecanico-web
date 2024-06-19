@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navigation } from '../../../Routes/Navigation/Navigation'
-import {Table,Button} from 'react-bootstrap'
+import {Navigation} from '../../../Routes/Navigation/Navigation'
+import {Button, Table} from 'react-bootstrap'
+
 export const Diagnotics = () => {
 
   const pendingJobs = [

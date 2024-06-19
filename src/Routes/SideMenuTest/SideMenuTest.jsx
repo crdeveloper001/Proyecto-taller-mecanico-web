@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Nav, Navbar,NavDropdown, Container,Button } from 'react-bootstrap';
+import {Button, Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 
 export const SideMenuTest = () => {
     const [expanded, setExpanded] = useState(false);

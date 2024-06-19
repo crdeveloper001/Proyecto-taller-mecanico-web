@@ -1,6 +1,5 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import {Authorization} from "../Services/AuthenticationService";
-import {useNavigate} from "react-router-dom";
 
 const useAuthentication = () => {
     const [currentCredentials, setCurrentCredentials] = useState({

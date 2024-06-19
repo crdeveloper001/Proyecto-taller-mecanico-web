@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Navigation } from '../../../Routes/Navigation/Navigation'
-import { Container, Table, Form, Button, Col, Row } from 'react-bootstrap'
+import React, {useState} from 'react'
+import {Navigation} from '../../../Routes/Navigation/Navigation'
+import {Button, Container, Form, Table} from 'react-bootstrap'
 import useClientSettings from '../../../Hooks/useClientsSettings';
-import { ClientsDetails } from './ClientsDetails/ClientsDetails';
-import { useNavigate } from 'react-router-dom';
+import {ClientsDetails} from './ClientsDetails/ClientsDetails';
+import {useNavigate} from 'react-router-dom';
 
 export const Clients = () => {
   const appNavigation = useNavigate()
@@ -22,7 +22,7 @@ export const Clients = () => {
 
         <form className='mb-4' >
           <Form.Group controlId="Input_Search" style={{ maxWidth: '300px' }}>
-            <Form.Label className='text-light'>Type a customer name</Form.Label>
+            <Form.Label className='text-dark'>Type a customer name</Form.Label>
             <Form.Control type="text" />
           </Form.Group>
 
@@ -31,7 +31,7 @@ export const Clients = () => {
           </Button>
 
         </form>
-        <div style={{ color: 'white', border: 'lpx', borderStyle: 'solid' }}></div>
+        <div style={{ color: 'black', border: 'lpx', borderStyle: 'solid' }}></div>
 
         <Button variant="info" size="sm" onClick={() => appNavigation("/add-new-client")}>
           Add new customer

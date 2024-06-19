@@ -1,11 +1,15 @@
 import React from "react";
-import { Navigation } from "../../Routes/Navigation/Navigation";
-import { Card, Col, Row, Container,Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import {Navigation} from "../../Routes/Navigation/Navigation";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import useProfileSettings from "../../Hooks/useProfileSettings.js";
+
 export const Dashboard = () => {
-
+  const{getCurrentSession} = useProfileSettings()
   const appNavigation = useNavigate();
+  //getCurrentSession()
 
+4
   return (
     <>
       <Navigation/>

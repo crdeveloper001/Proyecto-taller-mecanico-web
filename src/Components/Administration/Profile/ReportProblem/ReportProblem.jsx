@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Modal, Form, Button } from 'react-bootstrap';
+import React, {useState} from 'react'
+import {Button, Form, Modal} from 'react-bootstrap';
 
 export const ReportProblem = ({ show, onClose }) => {
     const [problemDescription, setProblemDescription] = useState("");

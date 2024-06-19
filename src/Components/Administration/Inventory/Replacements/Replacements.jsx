@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Navigation } from '../../../../Routes/Navigation/Navigation';
-import { Card, Table, Modal, Form, Button, Container, Row, Col, Badge } from 'react-bootstrap';
+import React, {useState} from 'react';
+import {Navigation} from '../../../../Routes/Navigation/Navigation';
+import {Button, Card, Col, Container, Row, Table} from 'react-bootstrap';
 
 export const Replacements = () => {
   const [inventoryData, setInventoryData] = useState([

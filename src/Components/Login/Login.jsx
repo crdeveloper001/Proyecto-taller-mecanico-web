@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
-import {Card, Container, Form, Button, Row, Col} from "react-bootstrap";
+import React, {useEffect} from "react";
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import useAuthentication from "../../Hooks/useAuthentication";
 import "./Login.css";
 import {useNavigate} from "react-router-dom";
-import workshopImage from '../../assets/CurrentImages/Workshop.jpg'
 import Descriptions from '../../assets/utils/AppDescriptions.json';
 
 export const Login = () => {

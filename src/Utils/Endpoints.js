@@ -14,4 +14,6 @@ export const Users = "api/v1/Users";
 export const SearchUser = "api/v1/Users/Search/";
 export const Vehicles = "api/v1/Vehicles";
 export const SearchVehicles = "api/v1/Vehicles/Search/";
+export const Jobs = "api/v1/Jobs/"
+
 

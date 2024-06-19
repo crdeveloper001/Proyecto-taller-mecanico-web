@@ -1,6 +1,5 @@
 import axios from "axios"
-import { API_URL, Inventory } from '../Utils/Endpoints';
-
+import {API_URL, Inventory} from '../Utils/Endpoints';
 
 
 // Function to fetch all inventory items

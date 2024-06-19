@@ -1,16 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { Navbar, Button} from "react-bootstrap";
-import {SideBarMenu} from "../SideBarMenu/SideBarMenu";
+import React, { useEffect, useState } from "react";
+import { Button, Navbar } from "react-bootstrap";
+import { SideBarMenu } from "../SideBarMenu/SideBarMenu";
 import useProfileSettings from '../../Hooks/useProfileSettings.js'
 
 export const Navigation = () => {
-    const {profileInformation, getCurrentSession} = useProfileSettings();
+    const { profileInformation, currentSession } = useProfileSettings();
     const [activeSideBar, setActiveSideBar] = useState(false);
-    getCurrentSession()
-    useEffect(() => {
-        console.log(profileInformation)
-    }, [profileInformation]);
-
+    //getCurrentSession()
 
     return (
         <>
@@ -26,14 +22,17 @@ export const Navigation = () => {
                 </Button>
                 <Navbar.Collapse className="justify-content-center">
                     <Navbar.Text>
-                        Signed as: {profileInformation.Name}
+                        Signed as: {currentSession?.Payload?.Name}
+                       
                     </Navbar.Text>
+
+
                 </Navbar.Collapse>
 
 
             </Navbar>
 
-            {activeSideBar ? <SideBarMenu openSideMenu={true}/> : ""}
+            {activeSideBar ? <SideBarMenu openSideMenu={true} /> : ""}
 
         </>)
 }

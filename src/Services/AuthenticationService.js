@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Authentication, API_URL } from '../Utils/Endpoints';
+import {API_URL, Authentication} from '../Utils/Endpoints';
 
 export const Authorization = async (credentials) => {
 

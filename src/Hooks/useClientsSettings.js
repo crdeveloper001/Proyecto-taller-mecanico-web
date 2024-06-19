@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addClient, deleteClient, getClients, searchClientByName, updateClient } from '../Services/ClientsService';
 
 const useClientsSettings = () => {
-    
+
     const [newClient, setNewClient] = useState({});
     const [currentClients, setCurrentClients] = useState([])
-    const [selectedClient,setSelectedClient] = useState({})
-    const [confirmationAdded,setConfirmationAdded] = useState(false);
-    const saveClientDetailSelected = (details) =>{
+    const [selectedClient, setSelectedClient] = useState({})
+    const [confirmationAdded, setConfirmationAdded] = useState(false);
+    const saveClientDetailSelected = (details) => {
         setSelectedClient(details);
     }
 
     const getCurrentClients = () => {
 
         useEffect(() => {
+
             const response = getClients().then(results => {
                 setCurrentClients(results);
             }).catch(error => {
@@ -31,7 +32,7 @@ const useClientsSettings = () => {
             alert(error)
         })
         cleanFields(e)
-        
+
     }
 
     const updateClientData = async () => {

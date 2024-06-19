@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_URL, Quotes } from '../Utils/Endpoints';
+import {API_URL} from '../Utils/Endpoints';
 // Function to fetch all quotes
 export const getClients = async () => {
     try {

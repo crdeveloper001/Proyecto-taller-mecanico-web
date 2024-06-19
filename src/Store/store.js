@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import {configureStore, createSlice} from '@reduxjs/toolkit';
 
 // Define el slice para el usuario
 const userSlice = createSlice({

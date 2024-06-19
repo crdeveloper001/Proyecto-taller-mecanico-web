@@ -1,6 +1,6 @@
 import axios from 'axios';
 // Base URL of your Spring Boot backend
-import { API_URL, Users, SearchUser } from '../Utils/Endpoints';
+import {API_URL, SearchUser, Users} from '../Utils/Endpoints';
 
 // Function to fetch all users
 export const getAllUsers = async () => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css';
+
 export const NotFoundPage = () => {
   return (
     <div className="not-found-container">

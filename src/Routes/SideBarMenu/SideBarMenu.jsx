@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Offcanvas, Button, Nav, Accordion } from 'react-bootstrap';
+import React, {useState} from 'react'
+import {Accordion, Button, Nav, Offcanvas} from 'react-bootstrap';
 import './index.css'
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export const SideBarMenu = ({ openSideMenu }) => {
     const appNavigator = useNavigate()
@@ -67,7 +67,7 @@ export const SideBarMenu = ({ openSideMenu }) => {
                     <Nav.Link className='mt-4'
                         href="/"
                         onClick={() => {
-                            localStorage.clear();
+                            sessionStorage.clear();
                         }}
                     >
                         <Button variant="danger" size="sm">

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_URL, Diagnostics } from '../Utils/Endpoints';
+import {API_URL, Diagnostics} from '../Utils/Endpoints';
 
 export const getDiagnostics = async () => {
     try {

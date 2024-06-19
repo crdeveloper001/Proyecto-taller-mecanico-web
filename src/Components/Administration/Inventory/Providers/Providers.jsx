@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Navigation } from '../../../../Routes/Navigation/Navigation'
-import { Button, Container, Form } from "react-bootstrap";
+import React, {useState} from "react";
+import {Navigation} from '../../../../Routes/Navigation/Navigation'
+import {Button, Container, Form} from "react-bootstrap";
 
 export const Providers = () => {
 
