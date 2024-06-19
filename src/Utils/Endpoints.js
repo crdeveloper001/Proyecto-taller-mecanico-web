@@ -1,5 +1,5 @@
-export const API_URL = "http://localhost:8080/";
-//export const API_URL = "https://taller-mecanico-api-beta.onrender.com/";
+//export const API_URL = "http://localhost:8080/";
+export const API_URL = "https://taller-mecanico-api-beta.onrender.com/";
 export const Authentication = "api/v1/Authorization";
 export const Clients = "api/v1/Clients";
 export const ContactsEmail = "api/v1/ContactInfoMail";
@@ -14,6 +14,6 @@ export const Users = "api/v1/Users";
 export const SearchUser = "api/v1/Users/Search/";
 export const Vehicles = "api/v1/Vehicles";
 export const SearchVehicles = "api/v1/Vehicles/Search/";
-export const Jobs = "api/v1/Jobs/"
+export const Jobs = "api/v1/Jobs"
 
 

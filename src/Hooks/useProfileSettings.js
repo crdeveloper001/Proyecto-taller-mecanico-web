@@ -58,6 +58,10 @@ const useProfileSettings = () => {
 
     };
 
+    const getAllUsers = () =>{
+        
+    }
+
     const createUpdateToProfile = () => {
         return updateUser(profileInformation);
     }

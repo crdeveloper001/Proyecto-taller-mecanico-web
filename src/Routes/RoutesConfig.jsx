@@ -13,10 +13,11 @@ import {CreateNewDiagnotic} from "../Components/Workshop/Diagnostics/CreateNewDi
 import {Tools} from "../Components/Administration/Inventory/Tools/Tools";
 import {Workshop} from "../Components/Workshop/Workshop";
 import {Inventory} from "../Components/Administration/Inventory/Inventory";
-import {PendingJobs} from "../Components/Workshop/PendingJobs/PendingJobs";
+import {JobsPanel} from "../Components/Workshop/PendingJobs/JobsPanel.jsx";
 import {Quotes} from "../Components/Workshop/Quotes/Quotes";
 import {NewQuote} from "../Components/Workshop/Quotes/NewQuote/NewQuote";
 import {PrivateRoutesProtection} from "./PrivateRoutesProtection/PrivateRoutesProtection.jsx";
+import { CreateNewJob } from "../Components/Workshop/PendingJobs/CreateNewJob/CreateNewJob.jsx";
 
 export const RoutesConfig = () => {
 
@@ -39,7 +40,8 @@ export const RoutesConfig = () => {
                     <Route path="/diagnostics" element={<Diagnotics/>}/>
                     <Route path="/create-new-diagnostic" element={<CreateNewDiagnotic/>}/>
                     <Route path="/diagnostic-details" element={<DiagnosticDetails/>}/>
-                    <Route path="/pending-jobs" element={<PendingJobs/>}/>
+                    <Route path="/pending-jobs" element={<JobsPanel/>}/>
+                    <Route path="/add-new-job" element={<CreateNewJob/>} />
                     <Route path="/quotes" element={<Quotes/>}/>
                     <Route path="/new-quote" element={<NewQuote/>}/>
                 </Route>

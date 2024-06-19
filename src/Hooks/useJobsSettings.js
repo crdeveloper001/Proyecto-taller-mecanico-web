@@ -14,6 +14,17 @@ const useJobsSettings = () => {
         job_Location: "",
         job_Assigned: ""
     }])
+    const [filteredJobs, setFilteredJobs] = useState([{
+        _id: 0,
+        job_Name: "",
+        job_Description: "",
+        job_Status: "",
+        job_Type: "",
+        job_Start_Date: "",
+        job_End_Date: "",
+        job_Location: "",
+        job_Assigned: ""
+    }])
     const [newJob, setNewJob] = useState({
         _id: 0,
         job_Name: "",
@@ -92,6 +103,16 @@ const useJobsSettings = () => {
                     console.log(error);
                 })
         }, [])
+
+        return currentJobs
+    }
+
+    const filterStatusJobs = async (status) =>{
+        await getCurrentJobs()
+        const filterByStatus = currentJobs.filter(item => item.job_Status === status);
+        setFilteredJobs(filterByStatus);
+        return filteredJobs;
+        
     }
 
     const addNewJob = () => {
@@ -105,6 +126,16 @@ const useJobsSettings = () => {
 
     }
 
-
+    return{
+        currentJobs,
+        newJob,
+        filteredJobs,
+        addJob,
+        getCurrentJobs,
+        filterStatusJobs,
+        saveNewClient
+    }
 
 }
+
+export default useJobsSettings
