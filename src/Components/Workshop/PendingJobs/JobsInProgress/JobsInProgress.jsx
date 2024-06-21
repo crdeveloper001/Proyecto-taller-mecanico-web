@@ -40,6 +40,14 @@ export const JobsInProgress = () => {
 
                                 <Row sm={2}>
                                     <Col>
+                                        <Button variant="outline-info" size="sm" onClick={() => console.log("Dark")}>
+                                           
+                                            <strong> <FcCheckmark /> Mark as completed </strong>
+                                           
+                                        </Button>
+
+                                    </Col>
+                                    <Col>
                                         <Button variant="outline-success" size="sm" onClick={() => console.log("Dark")}>
                                            
                                             <strong> <FcCheckmark /> Mark as completed </strong>

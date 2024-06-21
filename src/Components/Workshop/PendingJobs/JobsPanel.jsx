@@ -7,24 +7,9 @@ import { JobsCompleted } from "./JobsCompleted/JobsCompleted.jsx";
 import useJobsSettings from '../../../Hooks/useJobsSettings.js'
 
 export const JobsPanel = () => {
-    const { filteredJobs, filterStatusJobs, getCurrentJobs } = useJobsSettings();
+    const { getCurrentJobs } = useJobsSettings();
     getCurrentJobs()
 
-    const FilteringDataJobs = (status) => {
-
-        switch (status) {
-            case "New":
-                filterStatusJobs(status)
-                break;
-            case "In Progress":
-                filterStatusJobs(status)
-                break;
-            case "Completed":
-                filterStatusJobs(status)
-                break;
-
-        }
-    }
 
     return (
         <div>
