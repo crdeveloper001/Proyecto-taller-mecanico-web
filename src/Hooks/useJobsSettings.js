@@ -37,12 +37,14 @@ const useJobsSettings = () => {
         job_Assigned: ""
     })
     const saveNewClient = (e) => {
+
         switch (e.target.id) {
             case "InputJobName":
                 setNewJob((prevState) => ({
                     ...prevState,
                     job_Name: e.target.value,
                 }));
+                console.log(newJob)
                 break;
             case "InputJobDescription":
                 setNewJob((prevState) => ({

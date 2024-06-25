@@ -1,7 +1,11 @@
 import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap';
 import { Navigation } from '../../../../Routes/Navigation/Navigation';
+import useJobsSettings from "../../../../Hooks/useJobsSettings.js";
+
 export const CreateNewJob = () => {
+    const {saveNewClient} = useJobsSettings();
+
     return (
         <>
             <Navigation />
@@ -16,17 +20,18 @@ export const CreateNewJob = () => {
                             type="text"
                             name="job_Name"
                             placeholder="Enter job name"
+                            onChange={saveNewClient}
                         />
                     </Form.Group>
 
                     <Form.Group controlId="InputJobDescription">
                         <Form.Label>Job Description</Form.Label>
-                        <Form.Control as="textarea" rows={4} />
+                        <Form.Control as="textarea" rows={4} onChange={saveNewClient}/>
                     </Form.Group>
 
                     <Form.Group controlId="InputJobStatus">
                         <Form.Label>Job Status</Form.Label>
-                        <Form.Control as="select" name="job_Status">
+                        <Form.Control as="select" name="job_Status" onChange={saveNewClient}>
                             <option disabled>Choose...</option>
                             <option>New</option>
                             <option>In Progress</option>
@@ -37,7 +42,7 @@ export const CreateNewJob = () => {
 
                     <Form.Group controlId="InputJobType">
                         <Form.Label>Job Type</Form.Label>
-                        <Form.Control as="select" name="job_Type">
+                        <Form.Control as="select" name="job_Type" onChange={saveNewClient}>
                             <option value="Hands-on">Hands-on</option>
                             <option value="Diagnostic">Diagnostic</option>
                             <option value="Preventive Maintenance">Preventive Maintenance</option>
@@ -55,9 +60,9 @@ export const CreateNewJob = () => {
                     <Form.Group controlId="InputJobStartDate">
                         <Form.Label>Job Start Date</Form.Label>
                         <Form.Control
-
                             type="datetime-local"
                             name="job_Start_Date"
+                            onChange={saveNewClient}
                         />
                     </Form.Group>
 
@@ -66,6 +71,7 @@ export const CreateNewJob = () => {
                         <Form.Control
                             type="datetime-local"
                             name="job_End_Date"
+                            onChange={saveNewClient}
                         />
                     </Form.Group>
 
@@ -75,6 +81,7 @@ export const CreateNewJob = () => {
                             type="text"
                             name="job_Location"
                             placeholder="Enter job location"
+                            onChange={saveNewClient}
                         />
                     </Form.Group>
 
@@ -84,6 +91,7 @@ export const CreateNewJob = () => {
                             type="text"
                             name="job_Assigned"
                             placeholder="Enter name of assigned person"
+                            onChange={saveNewClient}
                         />
                     </Form.Group>
 

@@ -18,6 +18,7 @@ import {Quotes} from "../Components/Workshop/Quotes/Quotes";
 import {NewQuote} from "../Components/Workshop/Quotes/NewQuote/NewQuote";
 import {PrivateRoutesProtection} from "./PrivateRoutesProtection/PrivateRoutesProtection.jsx";
 import { CreateNewJob } from "../Components/Workshop/PendingJobs/CreateNewJob/CreateNewJob.jsx";
+import {NotFoundPage} from "../Components/NotFoundPage/NotFoundPage.jsx";
 
 export const RoutesConfig = () => {
 
@@ -28,24 +29,24 @@ export const RoutesConfig = () => {
             <Routes>
                 <Route element={<PrivateRoutesProtection/>}>
 
-                    <Route path="/dashboard" element={<Dashboard/>}/>
-                    <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/clients" element={<Clients/>}/>
-                    <Route path="/add-new-client" element={<AddNewClient/>}/>
-                    <Route path="/replacements" element={<Replacements/>}/>
-                    <Route path="/providers" element={<Providers/>}/>
-                    <Route path="/tools" element={<Tools/>}/>
-                    <Route path="/inventory-dashboard" element={<Inventory/>}/>
-                    <Route path="/workshop-dashboard" element={<Workshop/>}/>
-                    <Route path="/diagnostics" element={<Diagnotics/>}/>
-                    <Route path="/create-new-diagnostic" element={<CreateNewDiagnotic/>}/>
-                    <Route path="/diagnostic-details" element={<DiagnosticDetails/>}/>
-                    <Route path="/pending-jobs" element={<JobsPanel/>}/>
-                    <Route path="/add-new-job" element={<CreateNewJob/>} />
-                    <Route path="/quotes" element={<Quotes/>}/>
-                    <Route path="/new-quote" element={<NewQuote/>}/>
+                    <Route path="/dashboard" element={<Dashboard/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/profile" element={<Profile/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/clients" element={<Clients/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/add-new-client" element={<AddNewClient/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/replacements" element={<Replacements/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/providers" element={<Providers/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/tools" element={<Tools/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/inventory-dashboard" element={<Inventory/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/workshop-dashboard" element={<Workshop/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/diagnostics" element={<Diagnotics/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/create-new-diagnostic" element={<CreateNewDiagnotic/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/diagnostic-details" element={<DiagnosticDetails/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/pending-jobs" element={<JobsPanel/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/add-new-job" element={<CreateNewJob/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/quotes" element={<Quotes/>} errorElement={<NotFoundPage/>}/>
+                    <Route path="/new-quote" element={<NewQuote/>} errorElement={<NotFoundPage/>}/>
                 </Route>
-                    <Route path="/" element={<Login/>}/>
+                    <Route path="/" element={<Login/>} errorElement={<NotFoundPage/>}/>
             </Routes>
         </BrowserRouter>
     );

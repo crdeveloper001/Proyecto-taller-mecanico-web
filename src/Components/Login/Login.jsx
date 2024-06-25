@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import useAuthentication from "../../Hooks/useAuthentication";
-import "./Login.css";
+import "./index.css";
 import {useNavigate} from "react-router-dom";
 import Descriptions from '../../assets/utils/AppDescriptions.json';
 
