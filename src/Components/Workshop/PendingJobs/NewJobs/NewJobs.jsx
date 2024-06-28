@@ -5,6 +5,7 @@ import { IoReloadSharp } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import useJobsSettings from "../../../../Hooks/useJobsSettings";
 
+
 export const NewJobs = () => {
   const { currentJobs, filteredJobs, filterStatusJobs } = useJobsSettings();
   filterStatusJobs("New");

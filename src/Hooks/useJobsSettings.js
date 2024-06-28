@@ -45,6 +45,7 @@ const useJobsSettings = () => {
     job_Location: "",
     job_Assigned: "",
   });
+  const [statusCreated, setStatusCreated] = useState(false)
   const saveNewClient = (e) => {
     switch (e.target.id) {
       case "InputJobName":
@@ -128,19 +129,40 @@ const useJobsSettings = () => {
 
   const addNewJob = (e) => {
     e.preventDefault();
+    
     addJob(newJob)
       .then((results) => {
-        alert(results);
+        switch (results) {
+          case "CREATED":
+            setStatusCreated(true)
+            break;
+          case "NOT_CREATED":
+            setStatusCreated(false)
+
+          default:
+
+        }
+
+
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  const JobNewToInProgress = (job_Detail) =>{
+      
+  }
+
+  const JobInProgressToCompleted = () =>{
+
+  }
+
   return {
     currentJobs,
     newJob,
     filteredJobs,
+    statusCreated,
     addNewJob,
     getCurrentJobs,
     filterStatusJobs,

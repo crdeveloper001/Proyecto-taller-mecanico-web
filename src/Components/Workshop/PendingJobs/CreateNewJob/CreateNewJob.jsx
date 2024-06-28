@@ -1,10 +1,10 @@
 import React from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Alert } from "react-bootstrap";
 import { Navigation } from "../../../../Routes/Navigation/Navigation";
 import useJobsSettings from "../../../../Hooks/useJobsSettings.js";
 
 export const CreateNewJob = () => {
-  const { saveNewClient, addNewJob } = useJobsSettings();
+  const { statusCreated, saveNewClient, addNewJob } = useJobsSettings();
 
   return (
     <>
@@ -98,9 +98,14 @@ export const CreateNewJob = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button className="mt-2" variant="primary" type="submit">
             Create
           </Button>
+          {statusCreated ? <Alert variant="success" dismissible >
+            JOB CREATED!
+          </Alert> : ""}
+          
+
         </Form>
       </Container>
     </>
