@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import {Accordion, Button, Nav, Offcanvas} from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Accordion, Button, Nav, Offcanvas, NavDropdown } from 'react-bootstrap';
 import './index.css'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const SideBarMenu = ({ openSideMenu }) => {
     const appNavigator = useNavigate()
@@ -19,7 +19,7 @@ export const SideBarMenu = ({ openSideMenu }) => {
                         My Profile
                     </Button>
                 </Offcanvas.Header>
-                
+
                 <Offcanvas.Body>
                     <Nav className="flex-column">
                         <Accordion defaultActiveKey="0">
@@ -27,17 +27,21 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                 <Accordion.Header>Workshop</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-                                        <Nav.Link href="/pending-jobs">Current Jobs</Nav.Link>
+
                                         <Nav.Link href="/add-new-job">Add New Job</Nav.Link>
+                                        <Nav.Link href="/pending-jobs">Current Jobs</Nav.Link>
+                                        <Nav.Link href="/">Add New Provider</Nav.Link>
+                                        <Nav.Link href="/pending-jobs">View Providers</Nav.Link>
                                     </Nav>
+
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="1">
                                 <Accordion.Header>Inventories</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-                                        <Nav.Link href="replacements">Replacements</Nav.Link>
-                                        <Nav.Link href="tools">Tools</Nav.Link>
+                                        <Nav.Link href="inventories">Review</Nav.Link>
+
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
@@ -45,17 +49,35 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                 <Accordion.Header>Clients</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-                                        <Nav.Link href="add-new-client">Create New Client</Nav.Link>
-                                        <Nav.Link href="clients">View Current Clients</Nav.Link>
+                                        <Nav.Link href="add-new-client">Add New Client</Nav.Link>
+                                        <Nav.Link href="clients">View Clients</Nav.Link>
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="3">
-                                <Accordion.Header>Providers</Accordion.Header>
+                                <Accordion.Header>Vehicles</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-                                        <Nav.Link href="providers">Current Providers</Nav.Link>
-                                        <Nav.Link href="add-new-provider">Add New Provider</Nav.Link>
+                                        <Nav.Link href="providers">Current Vehicles</Nav.Link>
+                                        <Nav.Link href="add-new-provider">Add New Vehicle</Nav.Link>
+                                    </Nav>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="4">
+                                <Accordion.Header>Diagnostics</Accordion.Header>
+                                <Accordion.Body>
+                                    <Nav className="flex-column">
+                                        <Nav.Link href="providers">Current Diagnostics</Nav.Link>
+
+                                    </Nav>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="5">
+                                <Accordion.Header>Quotes</Accordion.Header>
+                                <Accordion.Body>
+                                    <Nav className="flex-column">
+                                        <Nav.Link href="providers">Current Quotes</Nav.Link>
+
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
