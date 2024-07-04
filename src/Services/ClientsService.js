@@ -15,7 +15,7 @@ export const getClients = async () => {
 // Function to search for clients by name
 export const searchClientByName = async (name) => {
     try {
-        const response = await axios.get(`${API_URL}${Clients}/${name}`);
+        const response = await axios.get(`${API_URL}${Clients}/search/${name}`);
         return response.data;
     } catch (error) {
         console.error('Error searching clients:', error);

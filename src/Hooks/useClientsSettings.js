@@ -19,7 +19,7 @@ const useClientsSettings = () => {
             RegistrationPlate: ""
         }
     });
-    const [currentClients, setCurrentClients] = useState([])
+    const [currentClients, setCurrentClients] = useState([{}])
     const [selectedClient, setSelectedClient] = useState({})
     const [confirmationAdded, setConfirmationAdded] = useState(false);
     const saveClientDetailSelected = (details) => {
@@ -42,7 +42,7 @@ const useClientsSettings = () => {
 
         addClient(newClient).then(results => {
             setConfirmationAdded(true);
-           
+
         }).catch(error => {
             alert(error)
         })
@@ -64,10 +64,25 @@ const useClientsSettings = () => {
         return response;
     }
 
-    const searchOneClient = (e) => {
-        const response = searchClientByName(e.target.value);
-        return response;
-    }
+    const searchOneClient = async (e) => {
+        if (e.target.value === "") {
+            const response = getClients().then(results => {
+                setCurrentClients(results);
+            }).catch(error => {
+                console.log(error);
+            })
+            return;
+        }
+
+        try {
+            const items = await searchClientByName(e.target.value);
+            setCurrentClients(items); // Ajusta según la estructura de los datos devueltos
+        } catch (error) {
+            console.error('Error retrieving clients:', error.response?.data || error.message);
+            setCurrentClients([]); // Ajusta según lo que deseas hacer en caso de error
+        }
+    };
+
 
     const saveNewClient = (e) => {
         setNewClient((prevState) => {

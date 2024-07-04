@@ -8,7 +8,7 @@ import { CreateNewJob } from '../../Workshop/PendingJobs/CreateNewJob/CreateNewJ
 
 export const Clients = () => {
   const appNavigation = useNavigate();
-  const { getCurrentClients, currentClients, selectedClient, saveClientDetailSelected } = useClientSettings();
+  const { getCurrentClients, currentClients, selectedClient, saveClientDetailSelected,searchOneClient } = useClientSettings();
   getCurrentClients();
 
   const [showUserInformation, setShowUserInformation] = useState(false);
@@ -35,13 +35,8 @@ export const Clients = () => {
         <form className='mb-4' >
           <Form.Group controlId="Input_Search" style={{ maxWidth: '300px' }}>
             <Form.Label className='text-dark'>Type a customer name</Form.Label>
-            <Form.Control type="text" />
+            <Form.Control type="text" onChange={searchOneClient}/>
           </Form.Group>
-
-          <Button className='mt-3' variant="success" size="sm" onClick={() => console.log("Search")}>
-            Search Customer
-          </Button>
-
         </form>
         <div style={{ color: 'black', border: 'lpx', borderStyle: 'solid' }}></div>
 
@@ -88,7 +83,7 @@ export const Clients = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center">No clients available</td>
+                <td colSpan="5" className="text-center">No clients available or found</td>
               </tr>
             )}
           </tbody>

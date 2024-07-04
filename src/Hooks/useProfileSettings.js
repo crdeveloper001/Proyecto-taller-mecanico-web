@@ -1,9 +1,22 @@
-import {useEffect, useState} from "react";
-import {updateUser} from '../Services/ProfileServices';
+import { useEffect, useState } from "react";
+import { updateUser } from '../Services/ProfileServices';
 
 const useProfileSettings = () => {
-    const [profileInformation, setProfileInformation] = useState({});
+
     const [currentSession, setCurrentSession] = useState(JSON.parse(sessionStorage.getItem("sessionPayloadInfo")));
+    const [profileInformation, setProfileInformation] = useState({
+
+        _id: currentSession?.Payload?._id,
+        Name: currentSession?.Payload?.Name,
+        Surname: currentSession?.Payload?.Surname,
+        Phone: currentSession?.Payload?.Phone,
+        Email: currentSession?.Payload?.CurrentEmail,
+        CurrentPassword: currentSession?.Payload?.CurrentPassword,
+        CurrentPosition: currentSession?.Payload?.CurrentPosition,
+        Role: currentSession?.Payload?.Role,
+
+
+    });
     const [enableField, setEnabledField] = useState(true);
     const activeProfileForm = () => {
         switch (enableField) {
@@ -50,18 +63,13 @@ const useProfileSettings = () => {
                     CurrentPassword: e.target.value,
                 }));
                 break;
-            
 
             default:
-                console.log("no input selected");
+                console.log("No input selected");
                 break;
         }
 
     };
-
-    const getAllUsers = () =>{
-        
-    }
 
     const createUpdateToProfile = () => {
         return updateUser(profileInformation);

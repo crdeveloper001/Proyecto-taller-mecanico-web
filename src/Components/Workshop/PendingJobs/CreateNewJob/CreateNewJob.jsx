@@ -8,8 +8,8 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
 
   useEffect(() => {
     newJob.ClientInformation = userData;
-    console.log(newJob);
-  }, [])
+   
+  }, [newJob])
 
   return (
     <>

@@ -3,10 +3,11 @@ import { Navigation } from "../../../Routes/Navigation/Navigation";
 import { Alert, Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import useProfileSettings from "../../../Hooks/useProfileSettings";
 import { ReportProblem } from "./ReportProblem/ReportProblem";
+import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
+    const testNav = useNavigate()
     const [showAlertToUser, setTurnOnOffAlert] = useState(false);
-
     const [profileSaved, setProfileSaved] = useState(false);
 
     const {
@@ -70,11 +71,11 @@ export const Profile = () => {
                                         </Card>
                                     </Col>
                                     <Col md={5}>
-
+                                                <h3>{currentSession.Payload?._id}</h3>
                                         <Form.Group controlId="InputName">
                                             <Form.Label>Name</Form.Label>
                                             <Form.Control type="text" disabled={enableField}
-                                                value={currentSession.Payload.Name}
+                                                placeholder={currentSession.Payload?.Name}
                                                 onChange={(e) => {
                                                     saveProfileInformationByUser(e)
                                                 }} />
@@ -82,7 +83,7 @@ export const Profile = () => {
                                         <Form.Group controlId="InputLastName">
                                             <Form.Label>Surname</Form.Label>
                                             <Form.Control type="text" disabled={enableField}
-                                                value={currentSession.Payload.Surname}
+                                                placeholder={currentSession.Payload.Surname}
                                                 onChange={(e) => {
                                                     saveProfileInformationByUser(e)
                                                 }} />
@@ -90,7 +91,7 @@ export const Profile = () => {
                                         <Form.Group controlId="InputEmail">
                                             <Form.Label>Email</Form.Label>
                                             <Form.Control type="email" disabled={enableField}
-                                                value={currentSession.Payload.CurrentEmail}
+                                                placeholder={currentSession.Payload.CurrentEmail}
                                                 onChange={(e) => {
                                                     saveProfileInformationByUser(e)
                                                 }} />
@@ -98,7 +99,7 @@ export const Profile = () => {
                                         <Form.Group controlId="InputPhone">
                                             <Form.Label>Phone</Form.Label>
                                             <Form.Control type="tel" disabled={enableField}
-                                                value={currentSession.Payload.Phone}
+                                                placeholder={currentSession.Payload.Phone}
                                                 onChange={saveProfileInformationByUser} />
                                         </Form.Group>
                                     </Col>
@@ -127,6 +128,10 @@ export const Profile = () => {
                                                         switch (result) {
                                                             case 201:
                                                                 setProfileSaved(true);
+                                                                setTimeout(() => {
+                                                                    sessionStorage.clear();
+                                                                    testNav("/")
+                                                                }, 3000);
                                                                 activeProfileForm()
                                                                 break;
 
@@ -150,7 +155,7 @@ export const Profile = () => {
                                 </Row>
 
                                 {profileSaved ? <Alert variant="success" dismissible>
-                                    PROFILE SAVED!!
+                                    PROFILE SAVED! YOU WILL BE LOG OUT AUTOMATICALLY IN 3 SECONDS
                                 </Alert> : ""}
 
                             </Card.Text>

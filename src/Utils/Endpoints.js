@@ -1,5 +1,5 @@
-export const API_URL = "http://localhost:8080/";
-//export const API_URL = "https://taller-mecanico-api-beta.onrender.com/";
+//export const API_URL = "http://localhost:8080/";
+export const API_URL = "https://taller-mecanico-api-beta.onrender.com/";
 export const Authentication = "api/v1/Authorization";
 export const Clients = "api/v1/Clients";
 export const ContactsEmail = "api/v1/ContactInfoMail";
