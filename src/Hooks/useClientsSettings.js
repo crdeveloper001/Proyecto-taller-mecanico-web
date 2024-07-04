@@ -22,6 +22,26 @@ const useClientsSettings = () => {
     const [currentClients, setCurrentClients] = useState([{}])
     const [selectedClient, setSelectedClient] = useState({})
     const [confirmationAdded, setConfirmationAdded] = useState(false);
+    const [showUserInformation, setShowUserInformation] = useState(false);
+    const [showCreateNewJob, setShowCreateNewJob] = useState(false);
+
+    const handleCloseUserInformation = () => {
+        setShowUserInformation(false);
+    }
+    const handleCloseCreateNewJob = () => {
+        setShowCreateNewJob(false);
+    }
+    const handleShowUserInformation = (client) => {
+        saveClientDetailSelected(client);
+        setShowUserInformation(true);
+      };
+    
+      const handleShowCreateJob = (client) => {
+        saveClientDetailSelected(client);
+        setShowCreateNewJob(true);
+      };
+    
+
     const saveClientDetailSelected = (details) => {
         setSelectedClient(details);
     }
@@ -76,10 +96,10 @@ const useClientsSettings = () => {
 
         try {
             const items = await searchClientByName(e.target.value);
-            setCurrentClients(items); // Ajusta según la estructura de los datos devueltos
+            setCurrentClients(items); 
         } catch (error) {
             console.error('Error retrieving clients:', error.response?.data || error.message);
-            setCurrentClients([]); // Ajusta según lo que deseas hacer en caso de error
+            setCurrentClients([]); 
         }
     };
 
@@ -176,6 +196,12 @@ const useClientsSettings = () => {
         currentClients,
         selectedClient,
         confirmationAdded,
+        showUserInformation,
+        showCreateNewJob,
+        handleCloseUserInformation,
+        handleCloseCreateNewJob,
+        handleShowUserInformation,
+        handleShowCreateJob,
         saveNewClient,
         saveClientDetailSelected,
         getCurrentClients,

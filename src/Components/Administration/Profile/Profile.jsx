@@ -19,7 +19,6 @@ export const Profile = () => {
         createUpdateToProfile
     } = useProfileSettings()
 
-
     const [showModal, setShowModal] = useState(false);
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
@@ -35,8 +34,6 @@ export const Profile = () => {
                         <Card.Header>Profile</Card.Header>
                         <Card.Body>
                             <Card.Text>
-
-
                                 <Row md={6}>
                                     <Col>
                                         <Card>
@@ -52,8 +49,6 @@ export const Profile = () => {
                                                         }}>
                                                         Edit Profile
                                                     </Button>
-
-
                                                     <hr />
                                                     <Button className="mt-1" variant="danger" size="sm"
                                                         onClick={() => console.log("Eliminar Perfil")}>
@@ -71,7 +66,7 @@ export const Profile = () => {
                                         </Card>
                                     </Col>
                                     <Col md={5}>
-                                                <h3>{currentSession.Payload?._id}</h3>
+                                       
                                         <Form.Group controlId="InputName">
                                             <Form.Label>Name</Form.Label>
                                             <Form.Control type="text" disabled={enableField}
@@ -140,7 +135,7 @@ export const Profile = () => {
 
                                                         switch (error.code) {
                                                             case "ERR_NETWORK":
-                                                                alert("me cague en el server");
+                                                                alert("Server is down, please try later");
 
                                                         }
                                                     })

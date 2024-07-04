@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import useAuthentication from "../../Hooks/useAuthentication";
 import "./index.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Descriptions from '../../assets/utils/AppDescriptions.json';
 
 export const Login = () => {
@@ -56,7 +56,7 @@ export const Login = () => {
 
                                             if (currentResponse === undefined) {
                                                 alert("bad request, try again")
-                                            }else{
+                                            } else {
                                                 switch (currentResponse.Auth_key) {
                                                     case "USER_AUTHORIZED":
                                                         appNavigation("/dashboard");
@@ -76,7 +76,7 @@ export const Login = () => {
                                 >
                                     INICIAR SESION
                                 </Button>
-                                <hr/>
+                                <hr />
                                 <a href="http://" target="_blank" rel="noopener noreferrer" onClick={() => {
                                     alert("contact admin")
                                 }}>Necesitas una cuenta?</a>
@@ -88,7 +88,7 @@ export const Login = () => {
                         <React.Fragment>
                             <div className="container">
                                 <p> {Descriptions.descripcion}</p>
-                                <hr/>
+                                <hr />
                                 <h2>Funcionalidades Principales:</h2>
                                 <ul>
                                     {Descriptions.funcionalidadesPrincipales.map((item, i) => {
@@ -97,16 +97,16 @@ export const Login = () => {
                                         )
                                     })}
                                 </ul>
-                                <hr/>
+                                <hr />
                                 <h2>Tecnologías Utilizadas:</h2>
                                 <ul>
                                     {Descriptions.tecnologiasUtilizadas.map(item => {
                                         return (
-                                            <li><strong>{item.tecnologia}</strong><br/> {item.descripcion}</li>
+                                            <li><strong>{item.tecnologia}</strong><br /> {item.descripcion}</li>
                                         )
                                     })}
                                 </ul>
-                                <hr/>
+                                <hr />
                                 <p>{Descriptions.beneficios}</p>
                             </div>
                         </React.Fragment>

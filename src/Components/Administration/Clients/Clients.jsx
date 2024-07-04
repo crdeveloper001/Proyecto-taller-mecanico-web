@@ -8,24 +8,20 @@ import { CreateNewJob } from '../../Workshop/PendingJobs/CreateNewJob/CreateNewJ
 
 export const Clients = () => {
   const appNavigation = useNavigate();
-  const { getCurrentClients, currentClients, selectedClient, saveClientDetailSelected,searchOneClient } = useClientSettings();
+  const { showUserInformation,
+    showCreateNewJob,
+    currentClients,
+    selectedClient,
+    handleShowUserInformation,
+    handleShowCreateJob,
+    handleCloseUserInformation,
+    handleCloseCreateNewJob,
+    getCurrentClients,
+    saveClientDetailSelected,
+    searchOneClient } = useClientSettings();
+
+    
   getCurrentClients();
-
-  const [showUserInformation, setShowUserInformation] = useState(false);
-  const [showCreateNewJob, setShowCreateNewJob] = useState(false);
-
-  const handleCloseUserInformation = () => setShowUserInformation(false);
-  const handleCloseCreateNewJob = () => setShowCreateNewJob(false);
-
-  const handleShowUserInformation = (client) => {
-    saveClientDetailSelected(client);
-    setShowUserInformation(true);
-  };
-
-  const handleShowCreateJob = (client) => {
-    saveClientDetailSelected(client);
-    setShowCreateNewJob(true);
-  };
 
   return (
     <div>
@@ -35,7 +31,7 @@ export const Clients = () => {
         <form className='mb-4' >
           <Form.Group controlId="Input_Search" style={{ maxWidth: '300px' }}>
             <Form.Label className='text-dark'>Type a customer name</Form.Label>
-            <Form.Control type="text" onChange={searchOneClient}/>
+            <Form.Control type="text" onChange={searchOneClient} />
           </Form.Group>
         </form>
         <div style={{ color: 'black', border: 'lpx', borderStyle: 'solid' }}></div>
@@ -65,7 +61,7 @@ export const Clients = () => {
                   <td>{item.Email}</td>
                   <td>{item.Phone}</td>
                   <td>
-                    <Button variant="info" size="sm" onClick={() => {
+                    <Button variant="info" size="sm" onClick={(e) => {
                       handleShowUserInformation()
                       saveClientDetailSelected(item)
                     }}>
