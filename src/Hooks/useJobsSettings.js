@@ -19,6 +19,22 @@ const useJobsSettings = () => {
       job_End_Date: "",
       job_Location: "",
       job_Assigned: "",
+      ClientInformation: {
+        _id: "",
+        Name: "",
+        Surname: "",
+        Email: "",
+        Phone: 0,
+        CurrentAddress: "",
+        VehicleDetails: {
+          _id: 0,
+          Brand: "",
+          Model: "",
+          Type: "",
+          EngineCapacity: 0,
+          RegistrationPlate: ""
+        }
+      }
     },
   ]);
   const [filteredJobs, setFilteredJobs] = useState([
@@ -32,6 +48,22 @@ const useJobsSettings = () => {
       job_End_Date: "",
       job_Location: "",
       job_Assigned: "",
+      ClientInformation: {
+        _id: "",
+        Name: "",
+        Surname: "",
+        Email: "",
+        Phone: 0,
+        CurrentAddress: "",
+        VehicleDetails: {
+          _id: 0,
+          Brand: "",
+          Model: "",
+          Type: "",
+          EngineCapacity: 0,
+          RegistrationPlate: ""
+        }
+      }
     },
   ]);
   const [newJob, setNewJob] = useState({
@@ -44,6 +76,22 @@ const useJobsSettings = () => {
     job_End_Date: "",
     job_Location: "",
     job_Assigned: "",
+    ClientInformation: {
+      _id: "",
+      Name: "",
+      Surname: "",
+      Email: "",
+      Phone: 0,
+      CurrentAddress: "",
+      VehicleDetails: {
+        _id: 0,
+        Brand: "",
+        Model: "",
+        Type: "",
+        EngineCapacity: 0,
+        RegistrationPlate: ""
+      }
+    }
   });
   const [statusCreated, setStatusCreated] = useState(false)
   const saveNewClient = (e) => {
@@ -127,9 +175,11 @@ const useJobsSettings = () => {
     return filteredJobs;
   };
 
-  const addNewJob = (e) => {
+  const addNewJob = (e,client_info) => {
+
+    newJob.ClientInformation = client_info
     e.preventDefault();
-    
+    console.log("here",newJob);
     addJob(newJob)
       .then((results) => {
         switch (results) {
@@ -150,11 +200,11 @@ const useJobsSettings = () => {
       });
   };
 
-  const JobNewToInProgress = (job_Detail) =>{
-      
+  const JobNewToInProgress = (job_Detail) => {
+
   }
 
-  const JobInProgressToCompleted = () =>{
+  const JobInProgressToCompleted = () => {
 
   }
 

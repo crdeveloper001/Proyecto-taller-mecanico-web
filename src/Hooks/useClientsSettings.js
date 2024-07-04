@@ -3,7 +3,22 @@ import { addClient, deleteClient, getClients, searchClientByName, updateClient }
 
 const useClientsSettings = () => {
 
-    const [newClient, setNewClient] = useState({});
+    const [newClient, setNewClient] = useState({
+        _id: "",
+        Name: "",
+        Surname: "",
+        Email: "",
+        Phone: 0,
+        CurrentAddress: "",
+        VehicleDetails: {
+            _id: 0,
+            Brand: "",
+            Model: "",
+            Type: "",
+            EngineCapacity: 0,
+            RegistrationPlate: ""
+        }
+    });
     const [currentClients, setCurrentClients] = useState([])
     const [selectedClient, setSelectedClient] = useState({})
     const [confirmationAdded, setConfirmationAdded] = useState(false);
@@ -27,7 +42,7 @@ const useClientsSettings = () => {
 
         addClient(newClient).then(results => {
             setConfirmationAdded(true);
-            alert(results);
+           
         }).catch(error => {
             alert(error)
         })
@@ -55,67 +70,84 @@ const useClientsSettings = () => {
     }
 
     const saveNewClient = (e) => {
-        switch (e.target.id) {
-            case "InputId":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    _id: e.target.value,
-                }));
-                break;
-            case "InputName":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    Name: e.target.value,
-                }));
-                break;
-            case "InputLastName":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    Surname: e.target.value,
-                }));
-                break;
-            case "InputEmail":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    Email: e.target.value,
-                }));
-                break;
-            case "InputPhone":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    Phone: e.target.value,
-                }));
-                break;
-            case "InputAddress":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    CurrentAddress: e.target.value,
-                }));
-                break;
-            case "InputCity":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    City: e.target.value,
-                }));
-                break;
-            case "InputState":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    State: e.target.value,
-                }));
-                break;
-            case "InputZipcode":
-                setNewClient((prevState) => ({
-                    ...prevState,
-                    Zipcode: e.target.value,
-                }));
-                break;
-            default:
-                console.log("no input selected");
-                break;
-        }
-
-    }
+        setNewClient((prevState) => {
+            switch (e.target.id) {
+                case "InputId":
+                    return {
+                        ...prevState,
+                        _id: e.target.value,
+                    };
+                case "InputName":
+                    return {
+                        ...prevState,
+                        Name: e.target.value,
+                    };
+                case "InputLastName":
+                    return {
+                        ...prevState,
+                        Surname: e.target.value,
+                    };
+                case "InputEmail":
+                    return {
+                        ...prevState,
+                        Email: e.target.value,
+                    };
+                case "InputPhone":
+                    return {
+                        ...prevState,
+                        Phone: e.target.value,
+                    };
+                case "InputAddress":
+                    return {
+                        ...prevState,
+                        CurrentAddress: e.target.value,
+                    };
+                case "InputVehicleBrand":
+                    return {
+                        ...prevState,
+                        VehicleDetails: {
+                            ...prevState.VehicleDetails,
+                            Brand: e.target.value,
+                        },
+                    };
+                case "InputVehicleModel":
+                    return {
+                        ...prevState,
+                        VehicleDetails: {
+                            ...prevState.VehicleDetails,
+                            Model: e.target.value,
+                        },
+                    };
+                case "InputVehicleType":
+                    return {
+                        ...prevState,
+                        VehicleDetails: {
+                            ...prevState.VehicleDetails,
+                            Type: e.target.value,
+                        },
+                    };
+                case "InputVehicleCapacity":
+                    return {
+                        ...prevState,
+                        VehicleDetails: {
+                            ...prevState.VehicleDetails,
+                            EngineCapacity: e.target.value,
+                        },
+                    };
+                case "InputVehicleRegistrationPlate":
+                    return {
+                        ...prevState,
+                        VehicleDetails: {
+                            ...prevState.VehicleDetails,
+                            RegistrationPlate: e.target.value,
+                        },
+                    };
+                default:
+                    console.log("no input selected");
+                    return prevState;
+            }
+        });
+    };
     /**CLEAN FORM BY TAKING ID FOR EACH FORM CONTROL IN E PARAMETER */
     const cleanFields = (e) => {
         for (let index = 0; index < e.target.length; index++) {
@@ -128,6 +160,7 @@ const useClientsSettings = () => {
         newClient,
         currentClients,
         selectedClient,
+        confirmationAdded,
         saveNewClient,
         saveClientDetailSelected,
         getCurrentClients,

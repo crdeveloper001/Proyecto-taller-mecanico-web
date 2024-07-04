@@ -27,25 +27,12 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                 <Accordion.Header>Workshop</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-
-                                        <Nav.Link href="/add-new-job">Add New Job</Nav.Link>
                                         <Nav.Link href="/pending-jobs">Current Jobs</Nav.Link>
-                                        <Nav.Link href="/">Add New Provider</Nav.Link>
-                                        <Nav.Link href="/pending-jobs">View Providers</Nav.Link>
                                     </Nav>
 
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="1">
-                                <Accordion.Header>Inventories</Accordion.Header>
-                                <Accordion.Body>
-                                    <Nav className="flex-column">
-                                        <Nav.Link href="inventories">Review</Nav.Link>
-
-                                    </Nav>
-                                </Accordion.Body>
-                            </Accordion.Item>
-                            <Accordion.Item eventKey="2">
                                 <Accordion.Header>Clients</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
@@ -54,17 +41,19 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="3">
-                                <Accordion.Header>Vehicles</Accordion.Header>
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header>Inventories</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
-                                        <Nav.Link href="providers">Current Vehicles</Nav.Link>
-                                        <Nav.Link href="add-new-provider">Add New Vehicle</Nav.Link>
+                                        <Nav.Link href="inventories">Review</Nav.Link>
+
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="4">
-                                <Accordion.Header>Diagnostics</Accordion.Header>
+                           
+                            
+                            <Accordion.Item eventKey="3">
+                                <Accordion.Header>Vehicles Diagnostics</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
                                         <Nav.Link href="providers">Current Diagnostics</Nav.Link>
@@ -72,8 +61,8 @@ export const SideBarMenu = ({ openSideMenu }) => {
                                     </Nav>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="5">
-                                <Accordion.Header>Quotes</Accordion.Header>
+                            <Accordion.Item eventKey="4">
+                                <Accordion.Header>Customer Quotes</Accordion.Header>
                                 <Accordion.Body>
                                     <Nav className="flex-column">
                                         <Nav.Link href="providers">Current Quotes</Nav.Link>

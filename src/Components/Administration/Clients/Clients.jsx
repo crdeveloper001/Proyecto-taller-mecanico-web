@@ -1,19 +1,31 @@
-import React, {useState} from 'react'
-import {Navigation} from '../../../Routes/Navigation/Navigation'
-import {Button, Container, Form, Table} from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Navigation } from '../../../Routes/Navigation/Navigation'
+import { Button, Container, Form, Table, Col, Row } from 'react-bootstrap'
 import useClientSettings from '../../../Hooks/useClientsSettings';
-import {ClientsDetails} from './ClientsDetails/ClientsDetails';
-import {useNavigate} from 'react-router-dom';
+import { ClientsDetails } from './ClientsDetails/ClientsDetails';
+import { useNavigate } from 'react-router-dom';
+import { CreateNewJob } from '../../Workshop/PendingJobs/CreateNewJob/CreateNewJob';
 
 export const Clients = () => {
-  const appNavigation = useNavigate()
-  const { getCurrentClients, currentClients,selectedClient,saveClientDetailSelected } = useClientSettings();
-  getCurrentClients()
+  const appNavigation = useNavigate();
+  const { getCurrentClients, currentClients, selectedClient, saveClientDetailSelected } = useClientSettings();
+  getCurrentClients();
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showUserInformation, setShowUserInformation] = useState(false);
+  const [showCreateNewJob, setShowCreateNewJob] = useState(false);
 
+  const handleCloseUserInformation = () => setShowUserInformation(false);
+  const handleCloseCreateNewJob = () => setShowCreateNewJob(false);
+
+  const handleShowUserInformation = (client) => {
+    saveClientDetailSelected(client);
+    setShowUserInformation(true);
+  };
+
+  const handleShowCreateJob = (client) => {
+    saveClientDetailSelected(client);
+    setShowCreateNewJob(true);
+  };
 
   return (
     <div>
@@ -46,7 +58,7 @@ export const Clients = () => {
               <th>Last Name</th>
               <th>Email</th>
               <th>Phone Number</th>
-              <th>More Details</th>
+              <th>Current Options</th>
             </tr>
           </thead>
           <tbody>
@@ -58,12 +70,19 @@ export const Clients = () => {
                   <td>{item.Email}</td>
                   <td>{item.Phone}</td>
                   <td>
-                    <Button variant="info" size="sm" onClick={() => {handleShow()
+                    <Button variant="info" size="sm" onClick={() => {
+                      handleShowUserInformation()
                       saveClientDetailSelected(item)
                     }}>
                       View more information
                     </Button>
-                    <ClientsDetails show={show} handleClose={handleClose} userData={selectedClient} />
+                    <Button variant="success" size="sm" onClick={() => {
+                      handleShowCreateJob()
+                      saveClientDetailSelected(item)
+                    }}>
+                      Generate Task for client
+                    </Button>
+
                   </td>
                 </tr>
               ))
@@ -74,7 +93,8 @@ export const Clients = () => {
             )}
           </tbody>
         </Table>
-
+        <CreateNewJob show={showCreateNewJob} handleCloseCreateNewJob={handleCloseCreateNewJob} userData={selectedClient} />
+        <ClientsDetails show={showUserInformation} handleCloseUserInformation={handleCloseUserInformation} userData={selectedClient} />
       </Container>
     </div>
   )

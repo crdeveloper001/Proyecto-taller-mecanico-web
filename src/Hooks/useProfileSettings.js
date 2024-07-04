@@ -50,6 +50,7 @@ const useProfileSettings = () => {
                     CurrentPassword: e.target.value,
                 }));
                 break;
+            
 
             default:
                 console.log("no input selected");
