@@ -20,7 +20,7 @@ export const Login = () => {
     }, []);
     return (
         <Container className="LoginContainer" fluid>
-            <h1 className="text-white mb-4 mt-3">TALLER MECANICO APP</h1>
+            <h1 className="text-dark mb-4 mt-3">TALLER MECANICO APP</h1>
             <Card className="d-flex mx-auto ">
                 <Row>
                     <Col sm={3}>
