@@ -1,30 +1,48 @@
 {
-    "descripcion": "TallerMec ERP es una aplicación integral diseñada específicamente para talleres mecánicos que buscan optimizar sus operaciones y mejorar la gestión de sus servicios. Con una interfaz amigable y funcionalidades intuitivas, TallerMec ERP permite a los talleres mantener un control completo sobre sus clientes, vehículos, diagnósticos, reportes, cotizaciones e inventarios de repuestos, entre otros aspectos clave de su negocio.",
-    "funcionalidadesPrincipales": [
-      "Gestión de Clientes y Vehículos.",
-      "Diagnósticos y Reportes.",
-      "Cotizaciones y Facturación.",
-      "Inventario de Repuestos.",
-      "Calendario y Programación de Citas."
-    ],
-    "tecnologiasUtilizadas": [
-      {
-        "tecnologia": "React.js",
-        "descripcion": "Frontend de la aplicación"
-      },
-      {
-        "tecnologia": "Spring Boot como API",
-        "descripcion": "Backend escalable."
-      },
-      {
-        "tecnologia": "MongoDB",
-        "descripcion": "Base de datos NoSQL."
-      },
-      {
-        "tecnologia": "Diseño Responsivo",
-        "descripcion": "Adaptación a diferentes dispositivos."
-      }
-    ],
-    "beneficios": "Los talleres mecánicos pueden optimizar sus procesos, mejorar la atención al cliente y aumentar su eficiencia operativa mediante esta aplicacion moderna"
-  }
-  
+  "descripcion": "TallerMec ERP es una aplicación integral diseñada específicamente para talleres mecánicos que buscan optimizar sus operaciones y mejorar la gestión de sus servicios. Con una interfaz amigable y funcionalidades intuitivas, TallerMec ERP permite a los talleres mantener un control completo sobre sus clientes, vehículos, diagnósticos, reportes, cotizaciones e inventarios de repuestos, entre otros aspectos clave de su negocio.",
+  "funcionalidadesPrincipales": [
+    {
+      "id": 1,
+      "funcionalidad": "Gestión de Clientes y Vehículos."
+    },
+    {
+      "id": 2,
+      "funcionalidad": "Diagnósticos y Reportes."
+    },
+    {
+      "id": 3,
+      "funcionalidad": "Cotizaciones y Facturación."
+    },
+    {
+      "id": 4,
+      "funcionalidad": "Inventario de Repuestos."
+    },
+    {
+      "id": 5,
+      "funcionalidad": "Calendario y Programación de Citas."
+    }
+  ],
+  "tecnologiasUtilizadas": [
+    {
+      "id": 1,
+      "tecnologia": "React.js",
+      "descripcion": "Frontend de la aplicación"
+    },
+    {
+      "id": 2,
+      "tecnologia": "Spring Boot como API",
+      "descripcion": "Backend escalable."
+    },
+    {
+      "id": 3,
+      "tecnologia": "MongoDB",
+      "descripcion": "Base de datos NoSQL."
+    },
+    {
+      "id": 4,
+      "tecnologia": "Diseño Responsivo",
+      "descripcion": "Adaptación a diferentes dispositivos."
+    }
+  ],
+  "beneficios": "Los talleres mecánicos pueden optimizar sus procesos, mejorar la atención al cliente y aumentar su eficiencia operativa mediante esta aplicacion moderna"
+}

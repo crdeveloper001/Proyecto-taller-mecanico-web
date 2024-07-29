@@ -9,12 +9,11 @@ export const Dashboard = () => {
   const appNavigation = useNavigate();
   //getCurrentSession()
 
-  4
   return (
     <>
-      <Navigation />
+      {/*<Navigation />*/}
       <Container fluid>
-        <Card className="mt-4">
+        <Card >
           <Card.Header>Modules</Card.Header>
           <Card.Body>
             <Row>

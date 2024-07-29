@@ -1,0 +1,48 @@
+.sidenavbar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black background */
+    padding-top: 20px;
+    transition: 0.3s;
+}
+
+.sidenavbar a {
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white; /* White text */
+    display: block;
+}
+
+.sidenavbar a:hover {
+    color: #f1f1f1; /* Light gray on hover */
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s, padding 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .sidenavbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidenavbar a {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+
+    .content {
+        margin-left: 0; /* Reset margin for mobile view */
+        padding: 10px; /* Adjust padding for mobile view */
+        background-color: #000000; /* Ensure a background color */
+    }
+}
