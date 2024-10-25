@@ -22,13 +22,9 @@ export const Login = () => {
 
     return (
         <>
-            <SideBarMenu2/>
+            {/* <SideBarMenu2/> */}
 
-
-
-
-
-            {/* <Container className="LoginContainer" fluid>
+            <Container className="LoginContainer" fluid>
                 <h1 className="text-dark mb-4 mt-3">TALLER MECANICO APP</h1>
                 <Card className="d-flex mx-auto ">
                     <Row>
@@ -124,7 +120,7 @@ export const Login = () => {
 
                     </Row>
                 </Card>
-            </Container> */}
+            </Container>
         </>
     );
 };

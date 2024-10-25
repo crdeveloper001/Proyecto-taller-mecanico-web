@@ -94,10 +94,10 @@ export const AddNewClient = () => {
                       name="vehicle_Brand"
                       onChange={(e) => { saveNewClient(e) }}
                     >
-                      {BrandVehicles.map(items => {
+                      {BrandVehicles.map((items,index) => {
                         return (
                           <>
-                            <option key={items.id} value={items.name}>{items.name}</option>
+                            <option key={items.index} value={items.name}>{items.name}</option>
                           </>
                         )
                       })}

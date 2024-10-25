@@ -156,7 +156,7 @@ const useJobsSettings = () => {
       getJobs()
         .then((results) => {
           setCurrentJobs(results);
-          console.log(currentJobs);
+         
         })
         .catch((error) => {
           console.log(error);
@@ -179,7 +179,7 @@ const useJobsSettings = () => {
 
     newJob.ClientInformation = client_info
     e.preventDefault();
-    console.log("here",newJob);
+    
     addJob(newJob)
       .then((results) => {
         switch (results) {

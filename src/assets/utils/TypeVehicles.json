@@ -1,42 +1,52 @@
 {
     "tipos_vehiculos": [
       {
+        "id":1,
         "tipo": "Sedán",
         "descripcion": "Automóvil de tamaño mediano a grande, con cuatro puertas y espacio para cinco pasajeros."
       },
       {
+        "id":2,
         "tipo": "SUV",
         "descripcion": "Vehículo utilitario deportivo diseñado para uso todo terreno, con capacidad para cinco a siete pasajeros."
       },
       {
+        "id":3,
         "tipo": "Coupé",
         "descripcion": "Automóvil de dos puertas, con estilo deportivo y asientos para dos a cuatro personas."
       },
       {
+        "id":4,
         "tipo": "Hatchback",
         "descripcion": "Automóvil con un compartimento de carga accesible desde el área de pasajeros, típicamente con dos o cuatro puertas."
       },
       {
+        "id":5,
         "tipo": "Descapotable",
         "descripcion": "Automóvil con techo convertible o descapotable, proporcionando una experiencia de conducción al aire libre."
       },
       {
+        "id":6,
         "tipo": "Pick-up",
         "descripcion": "Vehículo con cabina y caja de carga abierta en la parte trasera, diseñado para transportar mercancías o pasajeros."
       },
       {
+        "id":7,
         "tipo": "Furgoneta",
         "descripcion": "Vehículo comercial ligero diseñado para transportar carga o pasajeros, con un área de carga en la parte trasera."
       },
       {
+        "id":8,
         "tipo": "Monovolumen",
         "descripcion": "Automóvil con diseño de carrocería alta y amplio espacio interior, ideal para transportar pasajeros y carga."
       },
       {
+        "id":9,
         "tipo": "Crossover",
         "descripcion": "Vehículo con características de SUV pero construido sobre una plataforma de automóvil, combinando elementos de varios tipos de vehículos."
       },
       {
+        "id":10,
         "tipo": "4x4",
         "descripcion": "Vehículo con tracción en las cuatro ruedas, diseñado para manejo fuera de carretera y en condiciones adversas."
       }

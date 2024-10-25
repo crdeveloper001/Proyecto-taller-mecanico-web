@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import Dashboard from '../Dashboard/Dashboard.jsx'
 import { Container } from 'react-bootstrap';
 export const SideBarMenu2 = () => {
     return (
@@ -13,7 +12,7 @@ export const SideBarMenu2 = () => {
             </div>
 
            <div className='content'>
-                <Dashboard/>
+               content here
            </div>
         </>
     );

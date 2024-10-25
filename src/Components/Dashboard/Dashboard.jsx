@@ -11,7 +11,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {/*<Navigation />*/}
+      <Navigation />
       <Container fluid>
         <Card >
           <Card.Header>Modules</Card.Header>

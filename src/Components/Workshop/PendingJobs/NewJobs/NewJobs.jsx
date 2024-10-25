@@ -67,7 +67,7 @@ export const NewJobs = () => {
                         className="mr-auto"
                         variant="outline-success"
                         size="sm"
-                        onClick={() => console.log("Dark")}
+                        onClick={() => confirm("ARE YOU SURE TO START THIS TASK?")}
                       >
                         <strong>
                           {" "}
