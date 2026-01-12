@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navigation } from '../../../Routes/Navigation/Navigation'
-import { Button, Container, Form, Table, Col, Row } from 'react-bootstrap'
+import { Button, Container, Form, Table } from 'react-bootstrap'
 import useClientSettings from '../../../Hooks/useClientsSettings';
 import { ClientsDetails } from './ClientsDetails/ClientsDetails';
 import { useNavigate } from 'react-router-dom';
@@ -20,36 +20,39 @@ export const Clients = () => {
     saveClientDetailSelected,
     searchOneClient } = useClientSettings();
 
-    
   getCurrentClients();
 
   return (
     <div>
       <Navigation />
       <Container fluid className='mt-4'>
+        {/* Header Section */}
+        <div className='d-flex justify-content-between align-items-center mb-4'>
+          <h2 className='text-dark fw-bold'>Customers</h2>
+          <Button variant="primary" onClick={() => appNavigation("/add-new-client")}>
+            + Add New Customer
+          </Button>
+        </div>
 
-        <form className='mb-4' >
-          <Form.Group controlId="Input_Search" style={{ maxWidth: '300px' }}>
-            <Form.Label className='text-dark'>Type a customer name</Form.Label>
-            <Form.Control type="text" onChange={searchOneClient} />
-          </Form.Group>
-        </form>
-        <div style={{ color: 'black', border: 'lpx', borderStyle: 'solid' }}></div>
+        {/* Search Bar */}
+        <Form.Group controlId="Input_Search" className='mb-4' style={{ maxWidth: '350px' }}>
+          <Form.Label className='text-dark fw-bold'>Search Customer</Form.Label>
+          <Form.Control 
+            type="text" 
+            placeholder="Enter name, email, or phone..."
+            onChange={searchOneClient}
+          />
+        </Form.Group>
 
-        <Button variant="info" size="sm" onClick={() => appNavigation("/add-new-client")}>
-          Add new customer
-        </Button>
-
-        <br />
-
-        <Table striped bordered responsive hover className='mt-4'>
-          <thead>
+        {/* Table */}
+        <Table striped bordered responsive hover className='mt-4 shadow-sm'>
+          <thead className='table-light'>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
               <th>Phone Number</th>
-              <th>Current Options</th>
+              <th className='text-center'>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -60,30 +63,41 @@ export const Clients = () => {
                   <td>{item.Surname}</td>
                   <td>{item.Email}</td>
                   <td>{item.Phone}</td>
-                  <td>
-                    <Button variant="info" size="sm" onClick={(e) => {
-                      handleShowUserInformation()
-                      saveClientDetailSelected(item)
-                    }}>
-                      View more information
+                  <td className='text-center'>
+                    <Button 
+                      variant="info" 
+                      size="sm" 
+                      className='me-2'
+                      onClick={() => {
+                        handleShowUserInformation();
+                        saveClientDetailSelected(item);
+                      }}
+                    >
+                      View
                     </Button>
-                    <Button variant="success" size="sm" onClick={() => {
-                      handleShowCreateJob()
-                      saveClientDetailSelected(item)
-                    }}>
-                      Generate Task for client
+                    <Button 
+                      variant="success" 
+                      size="sm"
+                      onClick={() => {
+                        handleShowCreateJob();
+                        saveClientDetailSelected(item);
+                      }}
+                    >
+                      New Task
                     </Button>
-
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center">No clients available or found</td>
+                <td colSpan="5" className="text-center text-muted py-4">
+                  No customers available
+                </td>
               </tr>
             )}
           </tbody>
         </Table>
+
         <CreateNewJob show={showCreateNewJob} handleCloseCreateNewJob={handleCloseCreateNewJob} userData={selectedClient} />
         <ClientsDetails show={showUserInformation} handleCloseUserInformation={handleCloseUserInformation} userData={selectedClient} />
       </Container>

@@ -1,176 +1,177 @@
-import React from "react";
 import { Navigation } from "../../../../Routes/Navigation/Navigation";
-import { Button, Container, Form, Card, Row, Col,Alert } from "react-bootstrap";
-import { RiAddLargeLine } from "react-icons/ri";
+import { Button, Container, Form, Card, Row, Col, Alert } from "react-bootstrap";
 import useClientsSettings from "../../../../Hooks/useClientsSettings";
 import BrandVehicles from '../../../../assets/utils/BrandVehicles.json';
 import { cilindradas } from '../../../../assets/utils/CylindersNumbers.json'
 import { tipos_vehiculos } from '../../../../assets/utils/TypeVehicles.json'
-import { useNavigate } from "react-router-dom";
 
 export const AddNewClient = () => {
-  const appNavigation = useNavigate()
-  const { newClient,confirmationAdded, saveNewClient, createNewClient } = useClientsSettings()
+  const { newClient, confirmationAdded, saveNewClient, createNewClient } = useClientsSettings()
 
   return (
     <div>
-
       <Navigation />
-      <Container>
-
-        <Card>
-          <Card.Header>
-            <strong>Add client to the system</strong>
+      <Container className="py-5">
+        <Card className="shadow-lg border-0">
+          <Card.Header className="bg-primary text-white py-4">
+            <h4 className="mb-0">➕ Add New Client</h4>
           </Card.Header>
-          <Card.Body>
+          <Card.Body className="p-5">
             <Form id="GeneralForm">
-              <Row md={2}>
-                <Col md={6}>
-                  <h5>Client Information</h5>
-                  <Form.Group controlId="InputId">
-                    <Form.Label>Identification *9 digits</Form.Label>
+              <Row className="g-4">
+                {/* Client Information Section */}
+                <Col lg={6}>
+                  <h5 className="text-primary mb-4 pb-3 border-bottom">👤 Client Information</h5>
+                  
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">ID Number *</Form.Label>
                     <Form.Control
                       required
                       type="number"
-                      maxLength={9}
-                      placeholder="Enter your id"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter 9-digit ID"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <Form.Group controlId="InputName">
-                    <Form.Label>First Name</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">First Name *</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Enter your first name"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter first name"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <Form.Group controlId="InputLastName">
-                    <Form.Label>Last Name</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Last Name *</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Enter your last name"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter last name"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <Form.Group controlId="InputEmail">
-                    <Form.Label>Email Address</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Email Address *</Form.Label>
                     <Form.Control
                       required
                       type="email"
-                      placeholder="Enter your email address"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="example@email.com"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <Form.Group controlId="InputPhone">
-                    <Form.Label>Phone Number</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Phone Number *</Form.Label>
                     <Form.Control
                       required
-                      type="number"
-                      placeholder="Enter your phone number"
-                      onChange={(e) => { saveNewClient(e) }}
+                      type="tel"
+                      placeholder="Enter phone number"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <Form.Group controlId="InputAddress">
-                    <Form.Label>Address</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Address *</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Enter your address"
-
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter full address"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-                  <hr />
                 </Col>
-                <Col md={6}>
-                  <h5>Vehicle Information</h5>
-                  <Form.Group controlId="InputVehicleBrand">
-                    <Form.Label>Vehicle Brand</Form.Label>
+
+                {/* Vehicle Information Section */}
+                <Col lg={6}>
+                  <h5 className="text-primary mb-4 pb-3 border-bottom">🚗 Vehicle Information</h5>
+                  
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Vehicle Brand *</Form.Label>
                     <Form.Control
                       as="select"
                       name="vehicle_Brand"
-                      onChange={(e) => { saveNewClient(e) }}
+                      onChange={saveNewClient}
                     >
-                      {BrandVehicles.map((items,index) => {
-                        return (
-                          <>
-                            <option key={items.index} value={items.name}>{items.name}</option>
-                          </>
-                        )
-                      })}
+                      <option disabled selected>Select brand...</option>
+                      {BrandVehicles.map((items) => (
+                        <option key={items.name} value={items.name}>{items.name}</option>
+                      ))}
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="InputVehicleModel">
-                    <Form.Label>Model</Form.Label>
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Model *</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter vehicle model"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
 
-                  <Form.Group controlId="InputVehicleType">
-                    <Form.Label>Type</Form.Label>
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Vehicle Type *</Form.Label>
                     <Form.Control
                       as="select"
-                      onChange={(e) => { saveNewClient(e) }}
+                      onChange={saveNewClient}
                     >
-                      <option disabled>Choose...</option>
-                      {tipos_vehiculos.map(items => {
-                        return (
-                          <>
-                            <option value={items.tipo}>{items.tipo}</option>
-                          </>
-                        )
-                      })}
+                      <option disabled selected>Select type...</option>
+                      {tipos_vehiculos.map((items) => (
+                        <option key={items.tipo} value={items.tipo}>{items.tipo}</option>
+                      ))}
                     </Form.Control>
                   </Form.Group>
-                  <Form.Group controlId="InputVehicleCapacity">
-                    <Form.Label>Engine Capacity</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Engine Capacity *</Form.Label>
                     <Form.Control
                       as="select"
                       name="job_Status"
-                      onChange={(e) => { saveNewClient(e) }}
+                      onChange={saveNewClient}
                     >
-                      <option disabled>Choose...</option>
-                      {cilindradas.map(items => {
-                        return (
-                          <>
-
-                            <option value={items}>{items}</option>
-                          </>
-                        )
-                      })}
+                      <option disabled selected>Select capacity...</option>
+                      {cilindradas.map((items) => (
+                        <option key={items} value={items}>{items}</option>
+                      ))}
                     </Form.Control>
                   </Form.Group>
-                  <Form.Group controlId="InputVehicleRegistrationPlate">
-                    <Form.Label>Registration Plate</Form.Label>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Registration Plate *</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      onChange={(e) => { saveNewClient(e) }}
+                      placeholder="Enter registration plate"
+                      onChange={saveNewClient}
                     />
                   </Form.Group>
-
                 </Col>
-                <Button variant="success" type="button" className="mt-2" onClick={createNewClient} >
-                Save New Client
-              </Button>
-             
               </Row>
-             
+
+              <div className="d-flex gap-2 mt-4">
+                <Button 
+                  variant="success" 
+                  size="lg"
+                  onClick={createNewClient}
+                >
+                  💾 Save New Client
+                </Button>
+                <Button variant="secondary" size="lg">
+                  ✕ Cancel
+                </Button>
+              </div>
             </Form>
+
+            {confirmationAdded && (
+              <Alert variant="success" dismissible className="mt-4">
+                ✓ Client <strong>{newClient.Name}</strong> was added successfully!
+              </Alert>
+            )}
           </Card.Body>
         </Card>
-
-        {confirmationAdded ?  <Alert variant="success" dismissible className="mt-2">
-              Client {newClient.Name} was added 
-            </Alert> :""}
-       
       </Container>
     </div>
   );
