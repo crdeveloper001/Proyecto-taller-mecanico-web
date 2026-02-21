@@ -1,19 +1,16 @@
-export const API_URL = "http://localhost:8080/";
-//export const API_URL = "https://taller-mecanico-api-beta.onrender.com/";
-export const Authentication = "api/v1/Authorization";
-export const Clients = "api/v1/Clients";
-export const ContactsEmail = "api/v1/ContactInfoMail";
-export const Diagnostics = "api/v1/Diagnostics";
-export const Inventory = "api/v1/Inventory";
-export const SearchItemInventory = "api/v1/Inventory/Seach/";
-export const Providers = "api/v1/Providers";
-export const SearchProvider = "api/v1/Providers/Search/";
-export const Quotes = "api/v1/Quotes";
-export const SearchQuote = "api/v1/Quotes/Search/";
-export const Users = "api/v1/Users";
-export const SearchUser = "api/v1/Users/Search/";
-export const Vehicles = "api/v1/Vehicles";
-export const SearchVehicles = "api/v1/Vehicles/Search/";
-export const Jobs = "api/v1/Jobs"
-
-
+export const API_URL = import.meta.env.VITE_API_URL;
+export const Authentication = import.meta.env.VITE_Authentication;
+export const Clients = import.meta.env.VITE_Clients;
+export const ContactsEmail = import.meta.env.VITE_ContactsEmail;
+export const Diagnostics = import.meta.env.VITE_Diagnostics;
+export const Inventory = import.meta.env.VITE_Inventory;
+export const SearchItemInventory = import.meta.env.VITE_SearchItemInventory;
+export const Providers = import.meta.env.VITE_Providers;
+export const SearchProvider = import.meta.env.VITE_SearchProvider;
+export const Quotes = import.meta.env.VITE_Quotes;
+export const SearchQuote = import.meta.env.VITE_SearchQuote;
+export const Users = import.meta.env.VITE_Users;
+export const SearchUser = import.meta.env.VITE_SearchUser;
+export const Vehicles = import.meta.env.VITE_Vehicles;
+export const SearchVehicles = import.meta.env.VITE_SearchVehicles;
+export const Jobs = import.meta.env.VITE_Jobs;
