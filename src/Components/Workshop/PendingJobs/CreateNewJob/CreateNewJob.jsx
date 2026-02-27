@@ -5,14 +5,24 @@ import useJobsSettings from "../../../../Hooks/useJobsSettings.js";
 export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
   const { statusCreated, newJob, saveNewClient, addNewJob } = useJobsSettings();
 
+  // Auto-dismiss success alert and close modal
   useEffect(() => {
-    newJob.ClientInformation = userData;
-  }, [newJob]);
+    if (statusCreated) {
+      const timer = setTimeout(() => {
+        handleCloseCreateNewJob();
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [statusCreated, handleCloseCreateNewJob]);
+
+  const handleSubmit = (e) => {
+    addNewJob(e, userData);
+  };
 
   return (
     <Modal show={show} onHide={handleCloseCreateNewJob} size="xl" fullscreen="lg-down">
       <Modal.Header closeButton>
-        <Modal.Title>Create task for: <strong>{userData.Name} {userData.Surname}</strong></Modal.Title>
+        <Modal.Title>Create task for: <strong>{userData?.Name} {userData?.Surname}</strong></Modal.Title>
       </Modal.Header>
       <Modal.Body className="bg-light">
         <Row className="g-3">
@@ -27,22 +37,22 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                   <Card.Body>
                     <Card.Title className="text-primary">Client Details</Card.Title>
                     <hr />
-                    <p><strong>ID:</strong> {userData._id}</p>
-                    <p><strong>Name:</strong> {userData.Name} {userData.Surname}</p>
-                    <p><strong>Email:</strong> <a href={`mailto:${userData.Email}`}>{userData.Email}</a></p>
-                    <p><strong>Phone:</strong> <a href={`tel:+${userData.Phone}`}>{userData.Phone}</a></p>
-                    <p><strong>Address:</strong> {userData.CurrentAddress}</p>
+                    <p><strong>ID:</strong> {userData?._id}</p>
+                    <p><strong>Name:</strong> {userData?.Name} {userData?.Surname}</p>
+                    <p><strong>Email:</strong> <a href={`mailto:${userData?.Email}`}>{userData?.Email}</a></p>
+                    <p><strong>Phone:</strong> <a href={`tel:+${userData?.Phone}`}>{userData?.Phone}</a></p>
+                    <p><strong>Address:</strong> {userData?.CurrentAddress}</p>
                   </Card.Body>
                 </Card>
                 <Card>
                   <Card.Body>
                     <Card.Title className="text-primary">🚗 Vehicle Details</Card.Title>
                     <hr />
-                    <p><strong>Brand:</strong> {userData.VehicleDetails?.Brand || "N/A"}</p>
-                    <p><strong>Model:</strong> {userData.VehicleDetails?.Model || "N/A"}</p>
-                    <p><strong>Type:</strong> {userData.VehicleDetails?.Type || "N/A"}</p>
-                    <p><strong>Engine:</strong> {userData.VehicleDetails?.EngineCapacity || "N/A"}</p>
-                    <p><strong>Plate:</strong> {userData.VehicleDetails?.RegistrationPlate || "N/A"}</p>
+                    <p><strong>Brand:</strong> {userData?.VehicleDetails?.Brand || "N/A"}</p>
+                    <p><strong>Model:</strong> {userData?.VehicleDetails?.Model || "N/A"}</p>
+                    <p><strong>Type:</strong> {userData?.VehicleDetails?.Type || "N/A"}</p>
+                    <p><strong>Engine:</strong> {userData?.VehicleDetails?.EngineCapacity || "N/A"}</p>
+                    <p><strong>Plate:</strong> {userData?.VehicleDetails?.RegistrationPlate || "N/A"}</p>
                   </Card.Body>
                 </Card>
               </Card.Body>
@@ -56,12 +66,12 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                 ⚙️ Task Details
               </Card.Header>
               <Card.Body>
-                <Form onSubmit={addNewJob}>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
                     <Form.Label>Job Name *</Form.Label>
                     <Form.Control
                       type="text"
-                      name="job_Name"
+                      id="InputJobName"
                       placeholder="e.g., Engine Oil Change"
                       onChange={saveNewClient}
                       required
@@ -73,7 +83,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      name="job_Description"
+                      id="InputJobDescription"
                       placeholder="Enter detailed description..."
                       onChange={saveNewClient}
                       required
@@ -84,7 +94,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                     <Col sm={6}>
                       <Form.Group className="mb-3">
                         <Form.Label>Job Status *</Form.Label>
-                        <Form.Select name="job_Status" onChange={saveNewClient} required>
+                        <Form.Select id="InputJobStatus" onChange={saveNewClient} required>
                           <option value="">Choose...</option>
                           <option value="New">New</option>
                           <option value="In Progress">In Progress</option>
@@ -95,7 +105,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                     <Col sm={6}>
                       <Form.Group className="mb-3">
                         <Form.Label>Job Type *</Form.Label>
-                        <Form.Select name="job_Type" onChange={saveNewClient} required>
+                        <Form.Select id="InputJobType" onChange={saveNewClient} required>
                           <option value="">Select type...</option>
                           <option value="Hands-on">Hands-on</option>
                           <option value="Diagnostic">Diagnostic</option>
@@ -117,7 +127,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                         <Form.Label>Start Date</Form.Label>
                         <Form.Control
                           type="datetime-local"
-                          name="job_Start_Date"
+                          id="InputJobStartDate"
                           onChange={saveNewClient}
                         />
                       </Form.Group>
@@ -127,7 +137,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                         <Form.Label>End Date</Form.Label>
                         <Form.Control
                           type="datetime-local"
-                          name="job_End_Date"
+                          id="InputJobEndDate"
                           onChange={saveNewClient}
                         />
                       </Form.Group>
@@ -138,7 +148,7 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                     <Form.Label>Location</Form.Label>
                     <Form.Control
                       type="text"
-                      name="job_Location"
+                      id="InputJobLocation"
                       placeholder="e.g., Bay 3"
                       onChange={saveNewClient}
                     />
@@ -148,14 +158,14 @@ export const CreateNewJob = ({ show, handleCloseCreateNewJob, userData }) => {
                     <Form.Label>Assigned To</Form.Label>
                     <Form.Control
                       type="text"
-                      name="job_Assigned"
+                      id="InputJobAssigned"
                       placeholder="Technician name"
                       onChange={saveNewClient}
                     />
                   </Form.Group>
 
                   {statusCreated && (
-                    <Alert variant="success" dismissible className="mb-3">
+                    <Alert variant="success" className="mb-3">
                       ✅ Job created successfully!
                     </Alert>
                   )}

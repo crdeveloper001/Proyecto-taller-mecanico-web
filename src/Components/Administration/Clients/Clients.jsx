@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Navigation } from '../../../Routes/Navigation/Navigation'
 import { Button, Container, Form, Table } from 'react-bootstrap'
-import useClientSettings from '../../../Hooks/useClientsSettings';
+import useClientsSettings from '../../../Hooks/useClientsSettings';
 import { ClientsDetails } from './ClientsDetails/ClientsDetails';
 import { useNavigate } from 'react-router-dom';
 import { CreateNewJob } from '../../Workshop/PendingJobs/CreateNewJob/CreateNewJob';
 
 export const Clients = () => {
   const appNavigation = useNavigate();
-  const { showUserInformation,
+  const {
+    showUserInformation,
     showCreateNewJob,
     currentClients,
     selectedClient,
@@ -16,11 +17,8 @@ export const Clients = () => {
     handleShowCreateJob,
     handleCloseUserInformation,
     handleCloseCreateNewJob,
-    getCurrentClients,
-    saveClientDetailSelected,
-    searchOneClient } = useClientSettings();
-
-  getCurrentClients();
+    searchOneClient
+  } = useClientsSettings();
 
   return (
     <div>
@@ -37,8 +35,8 @@ export const Clients = () => {
         {/* Search Bar */}
         <Form.Group controlId="Input_Search" className='mb-4' style={{ maxWidth: '350px' }}>
           <Form.Label className='text-dark fw-bold'>Search Customer</Form.Label>
-          <Form.Control 
-            type="text" 
+          <Form.Control
+            type="text"
             placeholder="Enter name, email, or phone..."
             onChange={searchOneClient}
           />
@@ -64,24 +62,18 @@ export const Clients = () => {
                   <td>{item.Email}</td>
                   <td>{item.Phone}</td>
                   <td className='text-center'>
-                    <Button 
-                      variant="info" 
-                      size="sm" 
+                    <Button
+                      variant="info"
+                      size="sm"
                       className='me-2'
-                      onClick={() => {
-                        handleShowUserInformation();
-                        saveClientDetailSelected(item);
-                      }}
+                      onClick={() => handleShowUserInformation(item)}
                     >
                       View
                     </Button>
-                    <Button 
-                      variant="success" 
+                    <Button
+                      variant="success"
                       size="sm"
-                      onClick={() => {
-                        handleShowCreateJob();
-                        saveClientDetailSelected(item);
-                      }}
+                      onClick={() => handleShowCreateJob(item)}
                     >
                       New Task
                     </Button>

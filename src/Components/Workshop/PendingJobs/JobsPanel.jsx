@@ -14,25 +14,26 @@ export const JobsPanel = () => {
     return (
         <div>
             <Navigation />
-            <h3 className="text-dark mt-3">
-                CURRENT PENDING JOBS
-            </h3>
-            <hr />
-            <Tabs
-                defaultActiveKey="NewJobs"
-                id="fill-tab-example"
-                className="mb-3"
-                fill>
-                <Tab eventKey="NewJobs" title="New Jobs">
-                    <NewJobs />
-                </Tab>
-                <Tab eventKey="InProgressJobs" title="In Progress">
-                    <JobsInProgress />
-                </Tab>
-                <Tab eventKey="CompletedJobs" title="Completed">
-                    <JobsCompleted />
-                </Tab>
-            </Tabs>
+            <div className="container mt-3">
+                <h3 className="text-dark">CURRENT PENDING JOBS</h3>
+                <hr />
+                <Tabs
+                    defaultActiveKey="NewJobs"
+                    id="jobs-tabs"
+                    className="mb-3"
+                    fill
+                >
+                    <Tab eventKey="NewJobs" title="New Jobs">
+                        <NewJobs />
+                    </Tab>
+                    <Tab eventKey="InProgressJobs" title="In Progress">
+                        <JobsInProgress />
+                    </Tab>
+                    <Tab eventKey="CompletedJobs" title="Completed">
+                        <JobsCompleted />
+                    </Tab>
+                </Tabs>
+            </div>
         </div>
     );
 };

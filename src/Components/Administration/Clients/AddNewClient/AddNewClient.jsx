@@ -22,64 +22,76 @@ export const AddNewClient = () => {
                 {/* Client Information Section */}
                 <Col lg={6}>
                   <h5 className="text-primary mb-4 pb-3 border-bottom">👤 Client Information</h5>
-                  
+
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">ID Number *</Form.Label>
                     <Form.Control
+                      id="InputId"
                       required
                       type="number"
                       placeholder="Enter 9-digit ID"
                       onChange={saveNewClient}
+                      value={newClient._id}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">First Name *</Form.Label>
                     <Form.Control
+                      id="InputName"
                       required
                       type="text"
                       placeholder="Enter first name"
                       onChange={saveNewClient}
+                      value={newClient.Name}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Last Name *</Form.Label>
                     <Form.Control
+                      id="InputLastName"
                       required
                       type="text"
                       placeholder="Enter last name"
                       onChange={saveNewClient}
+                      value={newClient.Surname}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Email Address *</Form.Label>
                     <Form.Control
+                      id="InputEmail"
                       required
                       type="email"
                       placeholder="example@email.com"
                       onChange={saveNewClient}
+                      value={newClient.Email}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Phone Number *</Form.Label>
                     <Form.Control
+                      id="InputPhone"
                       required
                       type="tel"
                       placeholder="Enter phone number"
                       onChange={saveNewClient}
+                      value={newClient.Phone}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Address *</Form.Label>
                     <Form.Control
+                      id="InputAddress"
                       required
                       type="text"
                       placeholder="Enter full address"
                       onChange={saveNewClient}
+                      value={newClient.CurrentAddress}
                     />
                   </Form.Group>
                 </Col>
@@ -87,15 +99,16 @@ export const AddNewClient = () => {
                 {/* Vehicle Information Section */}
                 <Col lg={6}>
                   <h5 className="text-primary mb-4 pb-3 border-bottom">🚗 Vehicle Information</h5>
-                  
+
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Vehicle Brand *</Form.Label>
                     <Form.Control
+                      id="InputVehicleBrand"
                       as="select"
-                      name="vehicle_Brand"
                       onChange={saveNewClient}
+                      value={newClient.VehicleDetails.Brand}
                     >
-                      <option disabled selected>Select brand...</option>
+                      <option disabled value="">Select brand...</option>
                       {BrandVehicles.map((items) => (
                         <option key={items.name} value={items.name}>{items.name}</option>
                       ))}
@@ -105,20 +118,24 @@ export const AddNewClient = () => {
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Model *</Form.Label>
                     <Form.Control
+                      id="InputVehicleModel"
                       required
                       type="text"
                       placeholder="Enter vehicle model"
                       onChange={saveNewClient}
+                      value={newClient.VehicleDetails.Model}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Vehicle Type *</Form.Label>
                     <Form.Control
+                      id="InputVehicleType"
                       as="select"
                       onChange={saveNewClient}
+                      value={newClient.VehicleDetails.Type}
                     >
-                      <option disabled selected>Select type...</option>
+                      <option disabled value="">Select type...</option>
                       {tipos_vehiculos.map((items) => (
                         <option key={items.tipo} value={items.tipo}>{items.tipo}</option>
                       ))}
@@ -128,11 +145,12 @@ export const AddNewClient = () => {
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Engine Capacity *</Form.Label>
                     <Form.Control
+                      id="InputVehicleCapacity"
                       as="select"
-                      name="job_Status"
                       onChange={saveNewClient}
+                      value={newClient.VehicleDetails.EngineCapacity}
                     >
-                      <option disabled selected>Select capacity...</option>
+                      <option disabled value="">Select capacity...</option>
                       {cilindradas.map((items) => (
                         <option key={items} value={items}>{items}</option>
                       ))}
@@ -142,18 +160,20 @@ export const AddNewClient = () => {
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Registration Plate *</Form.Label>
                     <Form.Control
+                      id="InputVehicleRegistrationPlate"
                       required
                       type="text"
                       placeholder="Enter registration plate"
                       onChange={saveNewClient}
+                      value={newClient.VehicleDetails.RegistrationPlate}
                     />
                   </Form.Group>
                 </Col>
               </Row>
 
               <div className="d-flex gap-2 mt-4">
-                <Button 
-                  variant="success" 
+                <Button
+                  variant="success"
                   size="lg"
                   onClick={createNewClient}
                 >
